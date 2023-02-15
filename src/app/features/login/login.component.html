@@ -1,13 +1,37 @@
+<div class="container login">
+  
+        <div class="col-md-6 col-sm-offset-3 mt20 ">
+            <h1 style="color: rgb(80, 94, 94);">INVENTORY LOGIN</h1>
+           
 
-<h5>Login Component</h5>
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+            <mat-card class="des" style="border-radius: 28px; padding: 10px; margin-bottom: 40px;">
+                <!-- {{loginData | json}} -->
+                <form  (ngSubmit)="formSubmit()">
+                
+           
+                <mat-form-field  class="matform mt30 ml10 mr10 full-width" appearance="outline" style="color: #f68121;">
+                    <mat-label>Enter Username</mat-label>
+                    <input [(ngModel)]="loginData.username"  name="username" required  autofocus matInput placeholder="Username">
 
-<button type="button" class="btn btn-link">Link</button>
-<router-outlet></router-outlet>
+                </mat-form-field>
+                <mat-form-field   class="matform ml10 mr10 full-width" appearance="outline" style="color: #f68121;">
+                    <mat-label>Enter your password</mat-label>
+                    <input [(ngModel)]="loginData.password" type="password"  name="password" required matInput [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                </mat-form-field>
+                <mat-divider class="mt20 mb20"></mat-divider>
+                <button  class="logbtn" type="submit" mat-raised-button color="#f68121"
+                    style="background-color: #f68121; border-radius: 10px;">Login</button>
+
+                </form>
+            </mat-card>
+
+        </div>
+       
+
+   
+</div>

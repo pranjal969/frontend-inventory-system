@@ -1,3 +1,14 @@
-<p>dashboard works!</p>
+<div class="bootstrap-wrapper">
 
-<router-outlet></router-outlet>
+    <div class="container-fluid mt30">
+        <div class="row mt20">
+            <div class="col-md-3 ">
+             <app-dashboard-sidebar></app-dashboard-sidebar>
+            </div>
+            <div class="col-md-9">
+                <router-outlet></router-outlet>
+                
+            </div>
+        </div>
+    </div>
+</div>

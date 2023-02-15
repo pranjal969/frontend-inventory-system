@@ -22,6 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardSidebarComponent } from './features/dashboard-sidebar/dashboard-sidebar.component';
 import {MatListModule} from '@angular/material/list';
+import { HomeComponent } from './features/home/home.component';
+import { MaterialsComponent } from './features/materials/materials.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -34,6 +37,8 @@ import {MatListModule} from '@angular/material/list';
     NavbarComponent,
     FooterComponent,
     DashboardSidebarComponent,
+    HomeComponent,
+    MaterialsComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     HttpClientModule,
     FontAwesomeModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
 
   ],
   providers: [

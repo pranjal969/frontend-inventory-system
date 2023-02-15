@@ -25,6 +25,8 @@ import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './features/home/home.component';
 import { MaterialsComponent } from './features/materials/materials.component';
 import {MatSelectModule} from '@angular/material/select';
+import { StockInComponent } from './features/stock-in/stock-in.component';
+import { StockoutComponent } from './features/stockout/stockout.component';
 
 
 
@@ -39,6 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardSidebarComponent,
     HomeComponent,
     MaterialsComponent,
+    StockInComponent,
+    StockoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
 import { MaterialsComponent } from './features/materials/materials.component';
+import { StockInComponent } from './features/stock-in/stock-in.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,11 @@ const routes: Routes = [
         path:'material',
         component:MaterialsComponent
       },
+      {
+        path:'stockin',
+        component:StockInComponent
+      },
+      
     ]
   },
 

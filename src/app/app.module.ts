@@ -28,6 +28,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { StockInComponent } from './features/stock-in/stock-in.component';
 import { StockoutComponent } from './features/stockout/stockout.component';
 import { VendorComponent } from './features/vendor/vendor.component';
+import { DescriptionComponent } from './features/description/description.component';
 
 
 
@@ -45,6 +46,7 @@ import { VendorComponent } from './features/vendor/vendor.component';
     StockInComponent,
     StockoutComponent,
     VendorComponent,
+    DescriptionComponent,
   ],
   imports: [
     BrowserModule,

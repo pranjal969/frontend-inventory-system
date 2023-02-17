@@ -5,25 +5,34 @@
         <nav class=navbar navbar-expand-lg navbar-light style="background-color: #e3f2fd;">
             
 
-        <div class="col-md-6 ">
-               <a class="navbar-brand logo" href="#">
+        <div class="col-md-6  ">
+               <a class="navbar-brand logo" routerLink="/dashboard/">
                     <img src="../../../assets/images/logo.png" width="85" height="90" class="d-inline-block align-top"
                         alt="">
 
-                </a> </div>
+                </a> </div> 
+                <div  *ngIf="isloggedIn" class="col-md-6 paki" style="text-align: right;">
+                    <a (click)="logout()" mat-icon-button class="example-icon favorite-icon ml10 mr10 ">
+                       
+                        <mat-icon>logout</mat-icon>
+                        
+                      </a>  
+                </div>
                 <div class="col-md-6 col-sm-offset-0 paki "  >
                    
                            
-                                <a href="http://www.32watts.com/" target="_blank"> PATIENT</a>
-                                <a href="http://www.32watts.com/" target="_blank"> DENTIST</a>
+                                <a  *ngIf="!isloggedIn" [routerLink]="'/'" href="http://www.32watts.com/" target="_blank"> PATIENT</a>
+                                <a  *ngIf="!isloggedIn" [routerLink]="'/'" href="http://www.32watts.com/" target="_blank"> DENTIST</a>
                            
                            
-                                <a href="http://www.32watts.com/about.html" target="_blank"> ABOUT</a>
+                                <a  *ngIf="!isloggedIn" [routerLink]="'/'" href="http://www.32watts.com/about.html" target="_blank"> ABOUT</a>
                         
-                                <a href="https://www.32watts.com/blog/" target="_blank">BLOG</a>
+                                <a  *ngIf="!isloggedIn" [routerLink]="'/'" href="https://www.32watts.com/blog/" target="_blank">BLOG</a>
+                                         
+              
+                            </div>
+                          
                             
-                </div>
-      
          
 
                 <mat-divider></mat-divider>    

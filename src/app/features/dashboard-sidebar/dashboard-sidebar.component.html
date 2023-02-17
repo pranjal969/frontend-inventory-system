@@ -1,20 +1,30 @@
 <mat-card class="mt10 scroll">
     <mat-action-list>
-        <div mat-subheader> <h1> Menu</h1> </div>
+        <div mat-subheader>  <img src="../../../assets/images/sidebaricons/list.png" class="mb10 ml20 mr20 " alt="img" width="25" height="25"> 
+          <span class="menu">Menu </span>  </div>
         <mat-divider></mat-divider>
-        <button  mat-list-item routerLink="/dashboard"><mat-icon mat-list-icon > home</mat-icon> Home </button>
-        
-        <button mat-list-item routerLink="/dashboard/material" ><mat-icon mat-list-icon> <i class="material-icons">shopping_bag</i></mat-icon>Materials </button>
-        
-        <button mat-list-item routerLink="/dashboard/categories"><mat-icon mat-list-icon> view_list</mat-icon>Categories </button>
-        <button mat-list-item routerLink="/dashboard/stockin"><mat-icon mat-list-icon><i class="material-icons">production_quantity_limits</i> </mat-icon>Stock In </button>
-        
-        <button mat-list-item routerLink="/admin-dashboard/add-categories" ><mat-icon mat-list-icon> note_add</mat-icon>Add Categories </button>
-        
-        <button mat-list-item routerLink="/admin-dashboard/users"><mat-icon mat-list-icon><i class="material-icons">supervised_user_circle</i></mat-icon>Users </button>
-        
-        <button mat-list-item routerLink="/admin-dashboard/add-user"><mat-icon mat-list-icon><i class="material-icons">group_add</i> </mat-icon>Add User </button>
-        <button mat-list-item  routerLink="/profile"> <mat-icon mat-list-icon> account_circle</mat-icon>Profile </button>
+      <div >
+        <button style="padding-top: 5px;" class="btns" mat-list-item routerLink="/dashboard"> 
+            <img src="../../../assets/images/sidebaricons/home.png" class="mb10 ml10" alt="img" width="20" height="20"> 
+            <span style="font-size: large;" class="mt20 ml10">Home</span> </button>
+            
+            <button  style="padding-top: 5px;" class="btns" mat-list-item routerLink="/dashboard/material" >
+                <img src="../../../assets/images/sidebaricons/supply.png" class="mb10 ml10" alt="img" width="25" height="25"> 
+            <span style="font-size: large;" class="mt20 ml10">Materials</span> </button>
+            
+            <button  style="padding-top: 5px;" class="btns" mat-list-item routerLink="/dashboard/categories" >
+                <img src="../../../assets/images/sidebaricons/categories.png" class="mb10 ml10" alt="img" width="25" height="25"> 
+            <span style="font-size: large;" class="mt20 ml10">Categories</span> </button>
+            <button  style="padding-top: 5px;" class="btns" mat-list-item routerLink="/dashboard/stockin" >
+                <img src="../../../assets/images/sidebaricons/in-stock.png" class="mb10 ml10" alt="img" width="25" height="25"> 
+            <span style="font-size: large;" class="mt20 ml10">Stock In</span> </button> 
+            <button  style="padding-top: 5px;" class="btns" mat-list-item routerLink="/dashboard/stockout" >
+                <img src="../../../assets/images/sidebaricons/out-of-stock.png" class="mb10 ml10" alt="img" width="25" height="25"> 
+            <span style="font-size: large;" class="mt20 ml10">Stock Out</span> </button> 
+            <button  style="padding-top: 5px;" class="btns" mat-list-item routerLink="/dashboard/vendor" >
+                <img src="../../../assets/images/sidebaricons/seller.png" class="mb10 ml10" alt="img" width="25" height="25"> 
+            <span style="font-size: large;" class="mt20 ml10">Vendor</span> </button> 
+      </div>
     </mat-action-list>
         
             

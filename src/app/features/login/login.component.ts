@@ -13,6 +13,7 @@ export class LoginComponent {
   loginData = {
     username: 'drkapil',
     password: 'render123#'
+
   }
   constructor(private snackBar: MatSnackBar, private login: LoginServiceService, private router: Router) { }
   ngOnInit(): void {
@@ -42,8 +43,22 @@ export class LoginComponent {
     this.login.generateToken(this.loginData).subscribe(
       (data: any) => {
         console.log("success");
-        console.log(data);
-        this.router.navigate(['dashboard'])
+         console.log(data);
+       
+        this.login.setUser(data.response.username);
+        // console.log(this.login.getUser());
+  
+     if(this.login.getUser() == undefined || this.login.getUser() == '' || this.login.getUser() == null)
+     {
+      this.login.logout();
+     }
+     else{
+   this.router.navigate(['dashboard'])
+  
+     }
+   
+   
+       
       },
       (error) => {
         Swal.fire({

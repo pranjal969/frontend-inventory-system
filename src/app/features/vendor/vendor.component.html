@@ -1,0 +1,50 @@
+<div class="fluid-container ">
+
+    <mat-card class="mt10 " >
+        <h2 class="mt10" style="font-size: large; text-align: center;"> Vendor</h2>
+        <mat-divider></mat-divider>
+        
+  
+        <div class="row mt10 ml10">
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Vendor Code</mat-label>
+                    <input matInput>
+                </mat-form-field>
+  
+            </div>
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+  
+            </div>
+        </div>
+        
+    
+  
+    <div class="row mt10 ml10">
+        <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label ngModel="username" >Created By</mat-label>
+                <input  disabled matInput>
+            </mat-form-field>
+  
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label>Last Modified By</mat-label>
+                <input disabled="" matInput>
+            </mat-form-field>
+  
+        </div>
+    </div>
+      
+    </mat-card>
+   <mat-card >
+    <button  class="logbtn" type="submit" mat-raised-button color="#f68121"
+    style="background-color: #f68121; border-radius: 10px;">Update</button>
+  
+   </mat-card>
+  </div>

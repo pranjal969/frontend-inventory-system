@@ -6,6 +6,9 @@ import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
 import { MaterialsComponent } from './features/materials/materials.component';
 import { StockInComponent } from './features/stock-in/stock-in.component';
+import { StockoutComponent } from './features/stockout/stockout.component';
+import { VendorComponent } from './features/vendor/vendor.component';
+import { AdminGuard } from './services/admin.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +21,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate:[AdminGuard],
     children:[  {
       path:'',
       component:HomeComponent
@@ -33,6 +37,15 @@ const routes: Routes = [
       {
         path:'stockin',
         component:StockInComponent
+      },
+      
+      {
+        path:'stockout',
+        component:StockoutComponent
+      },
+      {
+        path:'vendor',
+        component:VendorComponent
       },
       
     ]

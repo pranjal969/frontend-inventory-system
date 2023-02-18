@@ -53,8 +53,7 @@ export class LoginComponent {
       this.login.logout();
      }
      else{
-   this.router.navigate(['dashboard'])
-  
+   window.location.href='/dashboard';
      }
    
    

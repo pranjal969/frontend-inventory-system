@@ -3,25 +3,55 @@
     text-align: center;
     padding: 10px;
     margin: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-left: auto;
 }
 .logbtn{
     width: 15%;
     margin: auto;
- margin-bottom: 28px;
- margin-top: 20px;
- padding: 20px;
+ margin-bottom: 18px;
+ margin-top: 10px;
+ padding: 10px;
 }
 
 .w90{
     width: 90%;
 }
+
+.w100{
+    width: 100%;
+}
 .scroll {
     margin:4px, 4px;
     padding:4px;
-    height: 363px;
+    height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align:justify;
 }
+
+table {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+  .scroll2 {
+    margin:4px, 4px;
+    padding:4px;
+    height: 400px;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align:justify;
+}
+
+th {
+    top: 0;
+    position: sticky;
+    color: black;
+
+
+    
+ }

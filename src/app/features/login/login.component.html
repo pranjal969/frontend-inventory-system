@@ -17,10 +17,10 @@
                 <mat-form-field   class="matform ml10 mr10 full-width" appearance="outline" style="color: #f68121;">
                     <mat-label>Enter your password</mat-label>
                     <input [(ngModel)]="loginData.password" type="password"  name="password" required matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
+                </a>
 
                 </mat-form-field>
                 <mat-divider class="mt20 mb20"></mat-divider>

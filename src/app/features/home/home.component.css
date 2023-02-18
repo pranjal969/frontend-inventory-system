@@ -8,8 +8,8 @@
       }
       
       .example-header-image {
+        background-image: url('../../../assets/images/homeicons/inventory.png');
         background-size: cover;
-       
       }
       .width{
         width: 60% !important;
@@ -27,6 +27,18 @@
       }
     
       .decor{
-        width: 320px;
-        height: 250px;
+        width: 160px;
+        height: 150px;
+        margin: auto;
+        border-radius: 20px;
+        padding: 5px;
       }
+
+      .scroll {
+        margin:4px, 4px;
+        padding:4px;
+        height: 450px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+    }

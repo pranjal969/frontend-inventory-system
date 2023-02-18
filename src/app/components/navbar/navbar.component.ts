@@ -20,17 +20,30 @@ export class NavbarComponent implements OnInit {
     
   }
   public logout() {
-    this.login.logout();
-    this.isloggedIn = false;
-    this.user = null;
     Swal.fire({
-      title: 'Logout Successfull',
-      text: 'Thank you visit again !!',
-      icon: 'success',
-      confirmButtonText: 'Ok'
+      title: 'Logout',
+      text: 'Are you sure you want to logout !!',
+      icon: 'warning',
+      confirmButtonText: 'Yes !',
+      showCancelButton: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //logout
+       
+        this.login.logout();
+        this.isloggedIn = false;
+        this.user = null;
+        Swal.fire({
+          title: 'Logout Successfull',
+          text: 'Thank you !!',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+        // window.location.href='/';
+        this.router.navigate([''])
+      }
+      
     })
-    this.router.navigate(['login'])
-    window.location.reload();
   }
 }
 

@@ -29,7 +29,11 @@ import { StockInComponent } from './features/stock-in/stock-in.component';
 import { StockoutComponent } from './features/stockout/stockout.component';
 import { VendorComponent } from './features/vendor/vendor.component';
 import { DescriptionComponent } from './features/description/description.component';
+import { ScrappingComponent } from './features/scrapping/scrapping.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
 
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule  } from 'ngx-ui-loader';
 
 
 @NgModule({
@@ -47,6 +51,8 @@ import { DescriptionComponent } from './features/description/description.compone
     StockoutComponent,
     VendorComponent,
     DescriptionComponent,
+    ScrappingComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,15 @@ import { DescriptionComponent } from './features/description/description.compone
     HttpClientModule,
     FontAwesomeModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot(
+      {
+        showForeground:true,
+      }
+    ),
+    MatTooltipModule,
+    MatTableModule
 
   ],
   providers: [

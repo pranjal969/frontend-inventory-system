@@ -24,11 +24,31 @@ a {
  a:hover {
     /* background-color: #f68121; */
     transform: scale(1.5);
-    font-size: 125%;
+    font-size: 120%;
     border-radius: 8px;
     color: #f68121;
    
   }
+  button{
+    
+    /* background-color: #f68121; */
+  
+    border-radius: 8px;
+    color: #2f2d2c;
+   
+  
+}
+button:hover{
+    
+        /* background-color: #f68121; */
+        transform: scale(1.5);
+        font-size: 125%;
+        border-radius: 8px;
+        color: #f68121;
+       
+      
+}
+
 .sticky{
     position: fixed
 }

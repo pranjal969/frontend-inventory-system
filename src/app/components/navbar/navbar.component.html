@@ -12,11 +12,9 @@
 
                 </a> </div> 
                 <div  *ngIf="isloggedIn" class="col-md-6 paki" style="text-align: right;">
-                    <a (click)="logout()" mat-icon-button class="example-icon favorite-icon ml10 mr10 ">
-                       
-                        <mat-icon>logout</mat-icon>
-                        
-                      </a>  
+                    <button color="primary"  (click)="logout()"  matTooltip="Logout" mat-icon-button class="example-icon favorite-icon ml10 mr30 "><mat-icon>logout</mat-icon></button>  
+
+                      
                 </div>
                 <div class="col-md-6 col-sm-offset-0 paki "  >
                    

@@ -25,31 +25,3 @@
     overflow-y: auto;
     text-align:justify;
 }
-
-table {
-    width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    margin-top: 5px;
-  }
-
-  .scroll2 {
-    margin:4px, 4px;
-    padding:4px;
-    height: 600px;
-    overflow-x: auto;
-    overflow-y: auto;
-    text-align:justify;
-}
-
-th {
-    top: 0;
-    position: sticky;
-    color: black;
-    width: 55px;
-  
-    padding: 5px;
-
-    
- }

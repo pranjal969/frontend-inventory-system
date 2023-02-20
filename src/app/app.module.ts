@@ -34,6 +34,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule  } from 'ngx-ui-loader';
+import { UpdateCategoryComponent } from './features/update-category/update-category.component';
+import { UpdateMaterialsComponent } from './features/update-materials/update-materials.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule  } fr
     VendorComponent,
     DescriptionComponent,
     ScrappingComponent,
+    UpdateCategoryComponent,
+    UpdateMaterialsComponent,
     
   ],
   imports: [

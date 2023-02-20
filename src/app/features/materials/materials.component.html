@@ -1,70 +1,60 @@
 <div class="fluid-container ">
 
-    <mat-card class="mt10 scroll" > 
-      
-        <h2 class="mt10" style="font-size: large; text-align: center;"> Materials</h2>
-        <mat-divider></mat-divider>
-        <div class="row mt20 ml10">
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Select Material Id</mat-label>
-                    <mat-select>
-                        <mat-option value="one">First option</mat-option>
-                        <mat-option value="two">Second option</mat-option>
-                    </mat-select>
-                </mat-form-field>
 
-            </div>
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Select Ctaegory Id</mat-label>
-                    <mat-select>
-                        <mat-option value="one">First option</mat-option>
-                        <mat-option value="two">Second option</mat-option>
-                    </mat-select>
-                </mat-form-field>
+  <mat-card class="mt10 scroll2">
 
-            </div>
-        </div>
+    <div class="fixtop">
+      <h2 class="mt10" style="font-size: large; text-align: center;"> Materials List</h2>
+      <mat-divider></mat-divider>
+    </div>
 
-        <div class="row mt10 ml10">
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Name</mat-label>
-                    <input matInput>
-                </mat-form-field>
+    <table mat-table [dataSource]="materials" class="mat-elevation-z">
 
-            </div>
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Dimension</mat-label>
-                    <input matInput>
-                </mat-form-field>
 
-            </div>
-        </div> 
-      
-        <div class="row mt10 ml10">
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Created By</mat-label>
-                    <input disabled matInput>
-                </mat-form-field>
+      <!-- Position Column -->
+      <ng-container matColumnDef="m_id">
+        <th mat-header-cell *matHeaderCellDef>M Id</th>
+        <td mat-cell *matCellDef="let element"> {{element.m_id}} </td>
+      </ng-container>
 
-            </div>
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Last Modified By</mat-label>
-                    <input disabled matInput>
-                </mat-form-field>
 
-            </div>
-        </div> 
-       
-    </mat-card>
-   <mat-card >
-    <button  class="logbtn" type="submit" mat-raised-button color="#f68121"
-    style="background-color: #f68121; border-radius: 10px;">Update</button>
 
-   </mat-card>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+
+      <!-- Ctaegory Column -->
+      <ng-container matColumnDef="c_id">
+        <th mat-header-cell *matHeaderCellDef> C Id</th>
+        <td mat-cell *matCellDef="let element"> {{element.c_id}} </td>
+      </ng-container>
+
+      <!-- created at Column -->
+      <ng-container matColumnDef="created_At">
+        <th mat-header-cell *matHeaderCellDef> Created At </th>
+        <td mat-cell *matCellDef="let element"> {{element.created_At}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let m of materials"> <button [routerLink]="'/dashboard/update-materials/'+m.m_id"
+            mat-raised-button color="primary" matTooltip="Update"><i class="material-icons">edit</i> </button> </td>
+      </ng-container>
+
+
+      <ng-container class="mr10" matColumnDef="modified_at">
+        <th mat-header-cell *matHeaderCellDef>Modified At</th>
+        <td mat-cell *matCellDef="let element"> {{element.modified_at}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </mat-card>
+
 </div>

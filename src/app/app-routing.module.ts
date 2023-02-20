@@ -9,6 +9,8 @@ import { MaterialsComponent } from './features/materials/materials.component';
 import { ScrappingComponent } from './features/scrapping/scrapping.component';
 import { StockInComponent } from './features/stock-in/stock-in.component';
 import { StockoutComponent } from './features/stockout/stockout.component';
+import { UpdateCategoryComponent } from './features/update-category/update-category.component';
+import { UpdateMaterialsComponent } from './features/update-materials/update-materials.component';
 import { VendorComponent } from './features/vendor/vendor.component';
 import { AdminGuard } from './services/admin.guard';
 
@@ -56,6 +58,10 @@ const routes: Routes = [
       {
         path:'scrapping',
         component:ScrappingComponent
+      },
+      {
+        path: 'update-materials/:materialId',
+        component: UpdateMaterialsComponent
       },
       
     ]

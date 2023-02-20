@@ -5,15 +5,14 @@ import LocalUrl from './helper2';
 @Injectable({
   providedIn: 'root'
 })
-export class InventoryService {
-
+export class MaterialService {
   constructor(private _http: HttpClient) { }
 
-//
-//load all the categories
-public categories(){
-  return this._http.get(`${LocalUrl}/eleserv/categories/getAll/`);
+  //
+  //load all the categories
+  public material(){
+    return this._http.get(`${LocalUrl}/eleserv/material/getAll/`);
+    
+    }
   
-  }
-
 }

@@ -24,7 +24,7 @@
 .scroll {
     margin:4px, 4px;
     padding:4px;
-    height: 200px;
+    height: 280px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align:justify;
@@ -41,7 +41,7 @@ table {
   .scroll2 {
     margin:4px, 4px;
     padding:4px;
-    height: 400px;
+    height: 600px;
     overflow-x: auto;
     overflow-y: auto;
     text-align:justify;
@@ -55,3 +55,22 @@ th {
 
     
  }
+ a:hover{
+    color: #2278ba;
+ }
+ a.clr{
+    color: rgb(242, 86, 86);
+ }
+ a.clr:hover{
+    color: red;
+ }
+
+ a{
+    color: #99c2df;
+  
+ }
+
+ a.img:hover{
+    zoom: 105%;
+    transition: 1.5x;
+   }

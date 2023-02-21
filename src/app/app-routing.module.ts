@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoryComponent } from './features/add-category/add-category.component';
+import { AddMaterialsComponent } from './features/add-materials/add-materials.component';
 import { CategoryComponent } from './features/category/category.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DescriptionComponent } from './features/description/description.component';
@@ -62,6 +64,18 @@ const routes: Routes = [
       {
         path: 'update-materials/:materialId',
         component: UpdateMaterialsComponent
+      },
+      {
+        path: 'add-materials',
+        component: AddMaterialsComponent
+      },
+      {
+        path: 'update-category/:categoryId',
+        component: UpdateCategoryComponent
+      },
+      {
+        path: 'add-category',
+        component: AddCategoryComponent
       },
       
     ]

@@ -36,6 +36,8 @@ import {MatTableModule} from '@angular/material/table';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule  } from 'ngx-ui-loader';
 import { UpdateCategoryComponent } from './features/update-category/update-category.component';
 import { UpdateMaterialsComponent } from './features/update-materials/update-materials.component';
+import { AddMaterialsComponent } from './features/add-materials/add-materials.component';
+import { AddCategoryComponent } from './features/add-category/add-category.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { UpdateMaterialsComponent } from './features/update-materials/update-mat
     ScrappingComponent,
     UpdateCategoryComponent,
     UpdateMaterialsComponent,
+    AddMaterialsComponent,
+    AddCategoryComponent,
     
   ],
   imports: [

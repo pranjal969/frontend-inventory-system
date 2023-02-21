@@ -12,11 +12,16 @@ export class MaterialsComponent implements OnInit {
   materials:any=[];
   displayedColumns: string[] = ['m_id', 'name', 'c_id', 'created_At' ,'modified_at','actions'];
   dataSource = this.materials;
+  
   constructor(private router:Router,private _route: ActivatedRoute,private _materials:MaterialService) { }
   ngOnInit(): void {
     this._materials.material().subscribe((data:any)=>{
-      this.materials=data;
-      console.log(this.materials);
+    
+  this.materials=data;
+  console.log(this.materials);
+
+
+      
     }, (error)=>{
       Swal.fire({
         title: 'Error!',

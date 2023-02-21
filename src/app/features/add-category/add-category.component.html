@@ -1,9 +1,8 @@
 
 <mat-card class="mt10 scroll">
-    <h2 class="mt10" style="font-size: large; text-align: center;"> Update Category</h2>
+    <h2 class="mt10" style="font-size: large; text-align: center;"> Add New Category</h2>
     <mat-divider></mat-divider>
-
-    <form *ngIf="category" (ngSubmit)="formSubmit()" #addCategoryForm="ngForm">
+    <form  (ngSubmit)="formSubmit()" #addCategoryForm="ngForm">
     <div class="row mt10 ml10 mr10">
       <div class="col-md-12 ">
         <mat-form-field class="w100" appearance="outline">
@@ -17,10 +16,9 @@
 
     <div class="text-center mb10 mt20">
       <button class="mt20 btncls" type="submit" [disabled]="addCategoryForm.form.invalid" mat-raised-button
-          style="background-color: #f68121; border-radius: 10px;">Submit</button>
+          style="background-color: #f68121; border-radius: 10px;">Add</button>
   </div>
     </form>
   </mat-card>
  
   
-

@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class CategoryComponent implements OnInit{
   categories:any=[];
-  displayedColumns: string[] = ['c_id', 'name', 'created_At', 'created_by' ,'last_Modified_by'];
+  displayedColumns: string[] = ['c_id', 'name', 'created_At', 'created_by' ,'last_Modified_by','actions'];
   dataSource = this.categories;
 
   

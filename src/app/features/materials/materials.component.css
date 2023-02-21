@@ -48,8 +48,32 @@ th {
     position: sticky;
     color: black;
     width: 55px;
-  
-    padding: 5px;
+  margin:auto;
 
     
+ }
+ a:hover{
+    color: #2278ba;
+ }
+ a.clr{
+    color: rgb(242, 86, 86);
+ }
+ a.clr:hover{
+    color: red;
+ }
+
+ a{
+    color: #99c2df;
+  
+ }
+
+
+ td {
+    z-index: 0;
+
+    
+ }
+ a.img:hover{
+  zoom: 105%;
+  transition: 1.5x;
  }

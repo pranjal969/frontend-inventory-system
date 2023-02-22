@@ -6,7 +6,7 @@ import { LoginServiceService } from './login.service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class NormalGuardGuard implements CanActivate {
   constructor (private login:LoginServiceService,private router:Router)
   {
 
@@ -17,11 +17,12 @@ export class AdminGuard implements CanActivate {
 
 if(this.login.isloggedIn())
 {
-  return true;
+  this.router.navigate(['/dashboard'])
+  return false;
   
 }
-this.router.navigate(['/'])
-      return false;
+
+      return true;
   }
   
 }

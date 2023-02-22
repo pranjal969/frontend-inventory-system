@@ -42,3 +42,10 @@
         overflow-y: auto;
         text-align:justify;
     }
+
+    .head{
+      font-family: "Lucida Console";
+      text-shadow: 2px;
+      letter-spacing: 5px;
+      
+    }

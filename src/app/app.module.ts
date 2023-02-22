@@ -38,7 +38,18 @@ import { UpdateCategoryComponent } from './features/update-category/update-categ
 import { UpdateMaterialsComponent } from './features/update-materials/update-materials.component';
 import { AddMaterialsComponent } from './features/add-materials/add-materials.component';
 import { AddCategoryComponent } from './features/add-category/add-category.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AddStockinComponent } from './features/add-stockin/add-stockin.component';
+import { UpdateStockinComponent } from './features/update-stockin/update-stockin.component';
+import { AddStockoutComponent } from './features/add-stockout/add-stockout.component';
+import { UpdateStockoutComponent } from './features/update-stockout/update-stockout.component';
+import { AddVendorComponent } from './features/add-vendor/add-vendor.component';
+import { UpdateVendorComponent } from './features/update-vendor/update-vendor.component';
+import { AddDescriptionComponent } from './features/add-description/add-description.component';
+import { UpdateDescriptionComponent } from './features/update-description/update-description.component';
+import { AddScrappingComponent } from './features/add-scrapping/add-scrapping.component';
+import { UpdateScrappingComponent } from './features/update-scrapping/update-scrapping.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -60,6 +71,16 @@ import { AddCategoryComponent } from './features/add-category/add-category.compo
     UpdateMaterialsComponent,
     AddMaterialsComponent,
     AddCategoryComponent,
+    AddStockinComponent,
+    UpdateStockinComponent,
+    AddStockoutComponent,
+    UpdateStockoutComponent,
+    AddVendorComponent,
+    UpdateVendorComponent,
+    AddDescriptionComponent,
+    UpdateDescriptionComponent,
+    AddScrappingComponent,
+    UpdateScrappingComponent,
     
   ],
   imports: [
@@ -80,6 +101,8 @@ import { AddCategoryComponent } from './features/add-category/add-category.compo
     MatListModule,
     MatSelectModule,
     NgxUiLoaderModule,
+    MatPaginatorModule,
+    NgxMatSelectSearchModule,
     NgxUiLoaderHttpModule.forRoot(
       {
         showForeground:true,

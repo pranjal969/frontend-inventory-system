@@ -30,7 +30,7 @@
       <!-- Weight Column -->
       <ng-container matColumnDef="created_At">
         <th mat-header-cell *matHeaderCellDef> Created At </th>
-        <td mat-cell *matCellDef="let element"> {{element.created_At}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.created_At | date: 'dd/MM/yy '}} </td>
       </ng-container>
 
       <!-- Symbol Column -->

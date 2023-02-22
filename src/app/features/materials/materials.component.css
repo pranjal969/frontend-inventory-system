@@ -70,8 +70,8 @@ th {
 
  td {
     z-index: 0;
+    width: 55px;
 
-    
  }
  a.img:hover{
   zoom: 105%;

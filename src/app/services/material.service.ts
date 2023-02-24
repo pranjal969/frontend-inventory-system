@@ -31,4 +31,9 @@ public getMaterialById( materialId:any){
    return this._http.put(`${LocalUrl}/eleserv/material/update/`,material);
  }
 
+// delete material by id
+public deleteMaterial(materialId:any){
+  return this._http.delete(`${LocalUrl}/eleserv/material/delete/${materialId}`)
+}
+
 }

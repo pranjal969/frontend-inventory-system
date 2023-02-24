@@ -1,1 +1,52 @@
-<p>add-vendor works!</p>
+<div class="fluid-container ">
+
+    <mat-card class="mt10 " >
+        <h2 class="mt10" style="font-size: large; text-align: center;"> Vendor</h2>
+        <mat-divider></mat-divider>
+        
+        <form *ngIf="vendor" (ngSubmit)="formSubmit()" #addVendorForm="ngForm">
+        <div class="row mt10 ml10">
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Vendor Code</mat-label>
+                    <input required [(ngModel)]="vendor.vendor_Code" name="vendor_Code" matInput>
+                </mat-form-field>
+  
+            </div>
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Vendor Name</mat-label>
+                    <input  required [(ngModel)]="vendor.name" name="name" matInput>
+                </mat-form-field>
+  
+            </div>
+        </div>
+        
+    
+  
+    <div class="row mt10 ml10">
+        <div class="col-md-6 " style="margin: auto;">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label   >Created By</mat-label>
+                <input required [(ngModel)]="vendor.created_by" name="created_by"  disabled matInput>
+            </mat-form-field>
+  
+        </div>
+        <!-- <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label>Last Modified By</mat-label>
+                <input disabled="" matInput>
+            </mat-form-field>
+  
+        </div> -->
+    </div>
+      
+    <div class="text-center mb20 mt10">
+        <button class="mt20 btncls" type="submit" [disabled]="addVendorForm.form.invalid" mat-raised-button
+            style="background-color: #f68121; border-radius: 10px;">Add Vendor</button>
+    </div>
+        </form>
+    </mat-card>
+   
+   
+  </div>

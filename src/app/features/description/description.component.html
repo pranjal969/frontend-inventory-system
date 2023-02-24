@@ -1,42 +1,68 @@
 <div class="fluid-container ">
 
-    <mat-card class="mt10 scroll" >
-        <h2 class="mt10" style="font-size: large; text-align: center;"> Description</h2>
+    <mat-card class="mt10 scroll2">
+  
+      <div class="fixtop">
+        <h2 class="mt10" style="font-size: large; text-align: center;"> Description List</h2>
+       <div class="mb10 mr20 " style="text-align: right;">
+        <a class="img"  [routerLink]="'/dashboard/add-description/'"> <img  matTooltip="Add New Description" src="../../../assets/images/add.png" alt="" width="45" height="45">
+        </a>
+       </div>
         <mat-divider></mat-divider>
-      
-
-        <div class="row mt10 ml10 mr10">
-            <div class="col-md-12 ">
-                <mat-form-field class="w100" appearance="outline">
-                    <mat-label>Name</mat-label>
-                    <input matInput>
-                </mat-form-field>
-
-            </div>
-        
-        </div> 
-      
-        <div class="row mt10 ml10">
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Created By</mat-label>
-                    <input disabled matInput>
-                </mat-form-field>
-
-            </div>
-            <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                    <mat-label>Last Modified By</mat-label>
-                    <input disabled matInput>
-                </mat-form-field>
-
-            </div>
-        </div> 
+      </div>
+  
+      <table mat-table [dataSource]="description" class="mat-elevation-z8">
+  
        
-    </mat-card>
-   <mat-card >
-    <button  class="logbtn" type="submit" mat-raised-button color="#f68121"
-    style="background-color: #f68121; border-radius: 10px;">Update</button>
+        <!-- Position Column -->
+        <ng-container matColumnDef="description_id">
+          <th mat-header-cell *matHeaderCellDef> Description ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.description_id}} </td>
+        </ng-container>
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+  
+        <ng-container class="mr10" matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef> Created At</th>
+          <td mat-cell *matCellDef="let element"> {{element.created_at | date: 'dd/MM/yy '}} </td>
+        </ng-container>
 
-   </mat-card>
-</div>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="created_by">
+            <th mat-header-cell *matHeaderCellDef> Created By </th>
+            <td mat-cell *matCellDef="let element"> {{element.created_by }} </td>
+          </ng-container>
+    
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="last_modified_by">
+            <th mat-header-cell *matHeaderCellDef> Last Modified By </th>
+            <td mat-cell *matCellDef="let element"> {{element.last_modified_by}} </td>
+          </ng-container>
+    
+  
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let description"> <a class="mr20 " [routerLink]="'/dashboard/update-description/'+description.description_id" matTooltip="Edit"><i class="material-icons">edit</i>  </a>
+            <a class="clr" [routerLink]="'/dashboard/update-description/'+description.description_id" matTooltip="Delete"><i class="material-icons">delete</i>  </a>
+          
+          </td>
+          
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+  
+    </mat-card>
+  
+  
+  
+   
+  
+  </div>

@@ -29,4 +29,10 @@ public getStockoutById( stockoutId:any){
  {
    return this._http.put(`${LocalUrl}/eleserv/stock_out/update/`,stockout);
  }
+
+  // delete stockout by id
+  public deletestockout(stockoutId:any){
+    return this._http.delete(`${LocalUrl}/eleserv/stock_out/delete/${stockoutId}`)
+  }
+
 }

@@ -30,4 +30,10 @@ public getStockinById( stockinId:any){
  {
    return this._http.put(`${LocalUrl}/eleserv/stock_in/update/`,stockIn);
  }
+
+
+  // delete stockin by id
+public deletestockin(stockinId:any){
+  return this._http.delete(`${LocalUrl}/eleserv/stock_in/delete/${stockinId}`)
+}
 }

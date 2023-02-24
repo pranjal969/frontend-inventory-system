@@ -1,1 +1,41 @@
-<p>add-description works!</p>
+<div class="fluid-container ">
+
+    <mat-card class="mt10 scroll" >
+        <h2 class="mt10" style="font-size: large; text-align: center;"> Description</h2>
+        <mat-divider></mat-divider>
+      
+        <form *ngIf="description" (ngSubmit)="formSubmit()" #addDescForm="ngForm">
+        <div class="row mt10 ml10 mr10">
+            <div class="col-md-12 ">
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input required [(ngModel)]="description.name" name="name" matInput>
+                </mat-form-field>
+
+            </div>
+        
+        </div> 
+      
+        <div class="row mt10 ml10">
+            <div class="col-md-6 " style="margin: auto;">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label   >Created By</mat-label>
+                    <input required [(ngModel)]="description.created_by" name="created_by"  disabled matInput>
+                </mat-form-field>
+      
+            </div>
+            <!-- <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Last Modified By</mat-label>
+                    <input disabled="" matInput>
+                </mat-form-field>
+      
+            </div> -->
+        </div>
+        <div class="text-center mb20 mt10">
+            <button class="mt10 mb20 btncls" type="submit" [disabled]="addDescForm.form.invalid" mat-raised-button
+                style="background-color: #f68121; border-radius: 10px;">Add</button>
+        </div>
+            </form>
+        </mat-card>
+</div>

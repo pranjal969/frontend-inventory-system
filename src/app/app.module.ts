@@ -50,6 +50,7 @@ import { UpdateDescriptionComponent } from './features/update-description/update
 import { AddScrappingComponent } from './features/add-scrapping/add-scrapping.component';
 import { UpdateScrappingComponent } from './features/update-scrapping/update-scrapping.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { CaseIdComponent } from './features/case-id/case-id.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     UpdateDescriptionComponent,
     AddScrappingComponent,
     UpdateScrappingComponent,
+    CaseIdComponent,
     
   ],
   imports: [

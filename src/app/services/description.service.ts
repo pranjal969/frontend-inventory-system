@@ -20,14 +20,19 @@ public getDescriptionById( descriptionId:any){
 }
   
   //add a new description
-  public addVendor(description:any)
+  public addDescription(description:any)
   {
     return this._http.post(`${LocalUrl}/eleserv/description/add/`,description);
   }
   
  //update description
- public updateVendor(description:any)
+ public updateDescription(description:any)
  {
    return this._http.put(`${LocalUrl}/eleserv/description/update/`,description);
  }
+
+    // delete desciption by id
+    public deletedescription(descriptionId:any){
+      return this._http.delete(`${LocalUrl}/eleserv/description/delete/${descriptionId}`)
+    }
 }

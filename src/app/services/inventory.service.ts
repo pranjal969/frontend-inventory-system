@@ -33,4 +33,9 @@ public getCategoryById( categoryId:any){
  }
 
 
+ // delete category by id
+public deleteCategory(categoryId:any){
+  return this._http.delete(`${LocalUrl}/eleserv/categories/delete/${categoryId}`)
+}
+
 }

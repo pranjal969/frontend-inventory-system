@@ -74,3 +74,6 @@ th {
     zoom: 105%;
     transition: 1.5x;
    }
+   .pointer-link {
+    cursor: pointer;
+  }

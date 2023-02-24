@@ -30,4 +30,9 @@ public getVendorById( vendorId:any){
  {
    return this._http.put(`${LocalUrl}/eleserv/vendor/update/`,vendor);
  }
+
+   // delete vendor by id
+   public deletevendor(vendorId:any){
+    return this._http.delete(`${LocalUrl}/eleserv/vendor/delete/${vendorId}`)
+  }
 }

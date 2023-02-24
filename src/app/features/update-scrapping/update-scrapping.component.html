@@ -1,1 +1,109 @@
-<p>update-scrapping works!</p>
+<div class="fluid-container ">
+
+    <mat-card class="mt10 scroll" >
+        <h2 class="mt10" style="font-size: large; text-align: center;">Update Scrapping</h2>
+        <mat-divider></mat-divider>
+
+        <form (ngSubmit)="formSubmit()"  #addStockInForm="ngForm">
+        <div class="row mt20 ml10">
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Select Material Name</mat-label>
+                    <mat-select required [(ngModel)]="scrapping.m_id" name="m_id">
+                        <mat-option required *ngFor="let m of material" [value]="m.m_id">
+                            {{m.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+  
+            </div>
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Select Ctaegory Name</mat-label>
+                    <mat-select required [(ngModel)]="scrapping.c_id" name="c_id">
+                        <mat-option required *ngFor="let c of category" [value]="c.c_id">
+                            {{c.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+  
+            </div>
+        </div>
+  
+        <div class="row mt10 ml10">
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Quantity</mat-label>
+                    <input required  [(ngModel)]="scrapping.quantity" name="quantity" matInput>
+               
+                </mat-form-field>
+  
+            </div>
+            <div class="col-md-6 ">
+                <mat-form-field class="w90" appearance="outline">
+                    <mat-label>Scrapped</mat-label>
+                    <input required [(ngModel)]="scrapping.scrapped" name="scrapped" matInput>
+               </mat-form-field>
+  
+            </div>
+        </div>
+  
+        <div class="row mt10 ml10">
+          <div class="col-md-6 ">
+              <mat-form-field class="w90" appearance="outline">
+                <mat-label>Manufacturer Lot No</mat-label>
+                <input  [(ngModel)]="scrapping.menufacture_lot_no" name="menufacture_lot_no"  matInput>
+            </mat-form-field>
+  
+          </div>
+          <div class="col-md-6 ">
+              <mat-form-field class="w90" appearance="outline">
+                <mat-label>Vendor Lot No</mat-label>
+                <input  [(ngModel)]="scrapping.vendor_lot_no" name="vendor_lot_no"  matInput>
+            </mat-form-field>
+  
+          </div>
+      </div>
+  
+      <div class="row mt10 ml10">
+        <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label>Issued By</mat-label>
+                <input  [(ngModel)]="scrapping.issued_by" name="issued_by"  matInput>
+            </mat-form-field>
+  
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label>Issued To</mat-label>
+                <input  [(ngModel)]="scrapping.issued_to" name="issued_to"  matInput>
+            </mat-form-field>
+        </div>
+    </div>
+  
+    <div class="row mt10 ml10">
+        <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label>Price</mat-label>
+                <input  [(ngModel)]="scrapping.price" name="price"  matInput>
+            </mat-form-field>
+  
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+                <mat-label>  Last Modified  By </mat-label>
+                <input disabled [(ngModel)]="scrapping.last_Modified_by" name="last_Modified_by"  matInput>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="text-center mb10 mt20">
+    <button  class="logbtn" type="submit" mat-raised-button color="#f68121"
+    style="background-color: #f68121; border-radius: 10px;">Update</button>
+    </div>
+    </form>
+    
+    </mat-card>
+   
+  
+   
+  </div>

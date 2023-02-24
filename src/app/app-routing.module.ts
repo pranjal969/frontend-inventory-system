@@ -7,6 +7,7 @@ import { AddScrappingComponent } from './features/add-scrapping/add-scrapping.co
 import { AddStockinComponent } from './features/add-stockin/add-stockin.component';
 import { AddStockoutComponent } from './features/add-stockout/add-stockout.component';
 import { AddVendorComponent } from './features/add-vendor/add-vendor.component';
+import { CaseIdComponent } from './features/case-id/case-id.component';
 import { CategoryComponent } from './features/category/category.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DescriptionComponent } from './features/description/description.component';
@@ -19,6 +20,7 @@ import { StockoutComponent } from './features/stockout/stockout.component';
 import { UpdateCategoryComponent } from './features/update-category/update-category.component';
 import { UpdateDescriptionComponent } from './features/update-description/update-description.component';
 import { UpdateMaterialsComponent } from './features/update-materials/update-materials.component';
+import { UpdateScrappingComponent } from './features/update-scrapping/update-scrapping.component';
 import { UpdateStockinComponent } from './features/update-stockin/update-stockin.component';
 import { UpdateStockoutComponent } from './features/update-stockout/update-stockout.component';
 import { UpdateVendorComponent } from './features/update-vendor/update-vendor.component';
@@ -126,11 +128,15 @@ const routes: Routes = [
       },
       {
         path: 'update-scrapping/:scrappingId',
-        component: UpdateStockoutComponent
+        component: UpdateScrappingComponent
       },
       {
         path: 'add-scrapping',
         component: AddScrappingComponent
+      },
+      {
+        path: 'caseid',
+        component: CaseIdComponent
       },
       
     ]

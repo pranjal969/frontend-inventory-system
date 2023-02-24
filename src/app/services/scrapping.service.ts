@@ -10,24 +10,30 @@ export class ScrappingService {
   constructor(private _http: HttpClient) { }
  
   //load all the scrapping
-  public getAllDescription(){
+  public getAllScrapping(){
     return this._http.get(`${LocalUrl}/eleserv/scrapping/getAll/`);
     
     }
 //get scrapping by id
-public getDescriptionById( scrappingId:any){
+public getScrappingById( scrappingId:any){
   return this._http.get(`${LocalUrl}/eleserv/scrapping/findById/${scrappingId}`);
 }
   
   //add a new scrapping
-  public addDescription(scrapping:any)
+  public addScraping(scrapping:any)
   {
     return this._http.post(`${LocalUrl}/eleserv/scrapping/add/`,scrapping);
   }
   
  //update scrapping
- public updateDescription(scrapping:any)
+ public updateScrapping(scrapping:any)
  {
    return this._http.put(`${LocalUrl}/eleserv/scrapping/update/`,scrapping);
  }
+
+  // delete scrapping by id
+  public deleteScrapping(scrappingId:any){
+    return this._http.delete(`${LocalUrl}/eleserv/scrapping/delete/${scrappingId}`)
+  }
+
 }

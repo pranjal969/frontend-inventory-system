@@ -1,0 +1,31 @@
+.w100{
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+}
+.logbtn{
+    width: 15%;
+    margin: auto;
+ margin-bottom: 28px;
+ margin-top: 20px;
+ padding: 20px;
+}
+
+.w90{
+    width: 90%;
+}
+.w80{
+    width: 84%;
+}
+
+.scroll {
+    margin:4px, 4px;
+    padding:4px;
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}

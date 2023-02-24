@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
 import { InventoryService } from 'src/app/services/inventory.service';
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
@@ -12,16 +13,20 @@ import * as XLSX from 'xlsx';
 })
 export class CategoryComponent implements OnInit{
   categories:any=[];
-  displayedColumns: string[] = ['c_id', 'name', 'created_At', 'created_by' ,'last_Modified_by','actions'];
+  displayedColumns: string[] = ['i+1', 'name', 'created_At', 'created_by' ,'last_Modified_by','actions'];
   dataSource = this.categories;
-
+  
+  fileName= 'CategoryExcelSheet.xlsx';
+  @ViewChild(MatSort) sort: MatSort;
+  ngAfterViewInit() { this.categories.sort = this.sort; }
   
   constructor(private _inventory:InventoryService) { }
-
+ 
   ngOnInit(): void {
     this._inventory.categories().subscribe((data:any)=>{
       //success
-      this.categories=data;
+      this.categories=data.filter((temp: any) => temp.isdelete == 0);
+      
       console.log(this.categories);
     }, (error)=>{
       Swal.fire({
@@ -37,7 +42,7 @@ export class CategoryComponent implements OnInit{
   }
 
 
-  //delete material
+  //delete category
   deleteCategory(c_id: any) {
   Swal.fire({
     title: 'Delete',
@@ -48,12 +53,12 @@ export class CategoryComponent implements OnInit{
   }).then((result) => {
     if (result.isConfirmed) {
       //delete
-      this._inventory.deleteMaterial(m_id).subscribe((data: any) => {
+      this._inventory.deleteCategory(c_id).subscribe((data: any) => {
         //success
-        this.materials = this.materials.filter((temp: any) => temp.m_id != m_id);
+        this.categories = this.categories.filter((temp: any) => temp.c_id != c_id);
         Swal.fire({
           title: 'Success!',
-          text: 'Material deleted successfully!!',
+          text: 'Ctaegory deleted successfully!!',
           icon: 'success',
           confirmButtonText: 'Ok'
         })

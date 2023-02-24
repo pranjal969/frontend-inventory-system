@@ -51,6 +51,11 @@ import { AddScrappingComponent } from './features/add-scrapping/add-scrapping.co
 import { UpdateScrappingComponent } from './features/update-scrapping/update-scrapping.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { CaseIdComponent } from './features/case-id/case-id.component';
+import { RawMaterialComponent } from './features/raw-material/raw-material.component';
+import { ConsumableStockComponent } from './features/consumable-stock/consumable-stock.component';
+import {MatSortModule} from '@angular/material/sort';
+
+
 
 @NgModule({
   declarations: [
@@ -83,6 +88,8 @@ import { CaseIdComponent } from './features/case-id/case-id.component';
     AddScrappingComponent,
     UpdateScrappingComponent,
     CaseIdComponent,
+    RawMaterialComponent,
+    ConsumableStockComponent,
     
   ],
   imports: [
@@ -111,7 +118,8 @@ import { CaseIdComponent } from './features/case-id/case-id.component';
       }
     ),
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
 
   ],
   providers: [

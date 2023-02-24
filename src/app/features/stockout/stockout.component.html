@@ -5,20 +5,22 @@
       <div class="fixtop">
         <h2 class="mt10" style="font-size: large; text-align: center;"> Stock Out</h2>
        <div class="mb10 mr20 " style="text-align: right;">
-        <a class="img"  [routerLink]="'/dashboard/add-stockout/'"> <img  matTooltip=" New Stock Out Entry" src="../../../assets/images/add.png" alt="" width="45" height="45">
+        <a class="img mr20"  [routerLink]="'/dashboard/add-stockout/'"> <img  matTooltip=" New Stock Out Entry" src="../../../assets/images/add.png" alt="" width="45" height="45">
+        </a>
+        <a class="img pointer-link ml20"  (click)="exportexcel()"> <img mdTooltipPosition='BottomCenter' matTooltip="Export to excel" src="../../../assets/images/xls-file.png" alt="" width="45" height="45">
         </a>
        </div>
         <mat-divider></mat-divider>
       </div>
   
-      <table mat-table [dataSource]="stockout" class="mat-elevation-z8">
+      <table id="excel-table" mat-table [dataSource]="stockout" class="mat-elevation-z8">
   
        
         <!-- Position Column -->
         <ng-container matColumnDef="sin_id">
-          <th mat-header-cell *matHeaderCellDef> S ID </th>
-          <td mat-cell *matCellDef="let element"> {{element.sout_id}} </td>
-        </ng-container>
+          <th mat-header-cell *matHeaderCellDef> Serial No </th> 
+          <td  mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+       </ng-container>
   
         <!-- Name Column -->
         <ng-container matColumnDef="quantity">
@@ -50,8 +52,8 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let stockout"> <a class="mr20 " [routerLink]="'/dashboard/update-stockout/'+stockout.sout_id" matTooltip="Edit"><i class="material-icons">edit</i>  </a>
-            <a class="clr" [routerLink]="'/dashboard/update-stockout/'+stockout.sout_id" matTooltip="Delete"><i class="material-icons">delete</i>  </a>
-          
+            <a class="clr pointer-link"   (click)="deleteStockout(stockout.sout_id)"  matTooltip="Delete"><i class="material-icons">delete</i>  </a>
+         
           </td>
           
         </ng-container>

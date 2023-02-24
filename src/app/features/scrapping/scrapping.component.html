@@ -5,20 +5,23 @@
       <div class="fixtop">
         <h2 class="mt10" style="font-size: large; text-align: center;"> Scrapping List</h2>
        <div class="mb10 mr20 " style="text-align: right;">
-        <a class="img"  [routerLink]="'/dashboard/add-scrapping/'"> <img  matTooltip="Add New Scrapping" src="../../../assets/images/add.png" alt="" width="45" height="45">
+        <a class="img mr20"  [routerLink]="'/dashboard/add-scrapping/'"> <img  matTooltip="Add New Scrapping" src="../../../assets/images/add.png" alt="" width="45" height="45">
+        </a>
+
+        <a class="img pointer-link ml20"  (click)="exportexcel()"> <img mdTooltipPosition='BottomCenter' matTooltip="Export to excel" src="../../../assets/images/xls-file.png" alt="" width="45" height="45">
         </a>
        </div>
         <mat-divider></mat-divider>
       </div>
   
-      <table mat-table [dataSource]="scrapping" class="mat-elevation-z8">
+      <table id="excel-table" mat-table [dataSource]="scrapping" class="mat-elevation-z8">
   
        
         <!-- Position Column -->
         <ng-container matColumnDef="scrapping_id">
-          <th mat-header-cell *matHeaderCellDef> S ID </th>
-          <td mat-cell *matCellDef="let element"> {{element.scrapping_id}} </td>
-        </ng-container>
+          <th mat-header-cell *matHeaderCellDef> Serial No </th> 
+          <td  mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+       </ng-container>
   
         <!-- Name Column -->
         <ng-container matColumnDef="quantity">
@@ -27,13 +30,13 @@
         </ng-container>
   
     
-        <!-- Weight Column -->
+        <!-- Issued By -->
         <ng-container matColumnDef="issued_by">
           <th mat-header-cell *matHeaderCellDef>Issued By </th>
           <td mat-cell *matCellDef="let element"> {{element.issued_by}} </td>
         </ng-container>
   
-        <!-- Symbol Column -->
+        <!-- Issued To-->
         <ng-container matColumnDef="issued_to">
           <th mat-header-cell *matHeaderCellDef> Issued To </th>
           <td mat-cell *matCellDef="let element"> {{element.issued_to}} </td>
@@ -50,8 +53,8 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let scrapping"> <a class="mr20 " [routerLink]="'/dashboard/update-scrapping/'+scrapping.scrapping_id" matTooltip="Edit"><i class="material-icons">edit</i>  </a>
-            <a class="clr" [routerLink]="'/dashboard/update-scrapping/'+scrapping.scrapping_id" matTooltip="Delete"><i class="material-icons">delete</i>  </a>
-          
+            <a class="clr pointer-link"   (click)="deleteDescription(scrapping.scrapping_id)"  matTooltip="Delete"><i class="material-icons">delete</i>  </a>
+         
           </td>
           
         </ng-container>

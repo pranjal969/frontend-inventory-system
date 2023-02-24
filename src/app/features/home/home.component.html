@@ -1,82 +1,112 @@
- <div class="fluid-container">
-    
-        <mat-card class="mt10 scroll" >
-            <div class="mb10 head" style="background-color:#b9ddf6; border-radius: 8px;">
-            <h2 class="mt10" style="font-size: large; text-align: center; color: rgb(41, 40, 40); font-weight: 500; font-size: 22px;"> Welcome to 32Watts Inventory {{username}} </h2>
-           
-          </div>
+<div class="fluid-container">
+
+  <mat-card class="mt10 scroll">
+    <div class="mb10 head" style="background-color:#b9ddf6; border-radius: 8px;">
+      <h2 class="mt10"
+        style="font-size: large; text-align: center; color: rgb(41, 40, 40); font-weight: 500; font-size: 22px;">
+        Welcome to 32Watts Inventory {{username}} </h2>
+
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="row" style="margin: auto;  padding: 10px;">
+      <div class="col-md-6">
+        <mat-card class="example-card ml20 mt10 mb10 ">
+          <mat-card-header >
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Raw Material Stock</mat-card-title>
+          </mat-card-header>
           <mat-divider></mat-divider>
-            
-             <div class="row">
-              <div class="col-md-4">
-                <mat-card class="example-card ml20 mt10 mb10 ">
-                <mat-card-header style="margin: auto;">
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>Raw Material Stock</mat-card-title>
-                </mat-card-header>
-                <mat-divider></mat-divider>
-                <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-                <mat-card-content>
-                  <p>
-                   
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-                  <button class=" mr10" mat-raised-button color="primary" >Update</button>
-                  <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button color="primary">View</button>
-                </mat-card-actions>
-              </mat-card>
-              </div>
+          <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
+          <mat-card-content>
+            <p>
 
-              <div class="col-md-4">
-                <mat-card class="example-card ml20 mt10 mb10 ">
-                <mat-card-header style="margin: auto;">
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>Consumable Stock</mat-card-title>
-                </mat-card-header>
-                <mat-divider></mat-divider>
-                <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-                <mat-card-content>
-                  <p>
-                   
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-                  <button class=" mr10" mat-raised-button color="primary" >Update</button>
-                  <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button color="primary">View</button>
-                </mat-card-actions>
-              </mat-card>
-              </div>
+            </p>
+          </mat-card-content>
+          <mat-card-actions style="margin: auto;  " class="mt10 mb10">
+            <button class="mr10" [routerLink]="'/dashboard/raw-material'" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
+              color="primary">View</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col-md-6">
+        <mat-card class="example-card ml20 mt10 mb10 ">
+          <mat-card-header >
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Consumable Stock</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
+          <mat-card-content>
+            <p>
+
+            </p>
+          </mat-card-content>
+          <mat-card-actions style="margin: auto;  " class="mt10 mb10">
+            <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
+              color="primary">View</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+    </div>
 
 
+    <div class="row" style="margin: auto; padding: 10px;">
+      <div class="col-md-6">
+       
+          <mat-card class="example-card ml20 mt10 mb10 mr20">
+            <mat-card-header >
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Assest Stock</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
+            <mat-card-content>
+              <p>
+  
+              </p>
+            </mat-card-content>
+            <mat-card-actions style="margin: auto;  " class="mt10 mb10">
+              <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
+                color="primary">View</button>
+            </mat-card-actions>
+          </mat-card>
+       
+      </div>
 
-              <div class="col-md-4">
-                <mat-card class="example-card ml20 mt10 mb10 mr20">
-                <mat-card-header style="margin: auto;">
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>Inventory Details</mat-card-title>
-                </mat-card-header>
-                <mat-divider></mat-divider>
-                <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-                <mat-card-content>
-                  <p>
-                   
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-                  <button class=" mr10" mat-raised-button color="primary" >Update</button>
-                  <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button color="primary">View</button>
-                </mat-card-actions>
-              </mat-card>
-              </div>
+      <div class="col-md-6">
+        <mat-card class="example-card ml20 mt10 mb10 ">
+          <mat-card-header >
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Stationary Stock</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
+          <mat-card-content>
+            <p>
 
-             </div>
+            </p>
+          </mat-card-content>
+          <mat-card-actions style="margin: auto;  " class="mt10 mb10">
+            <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
+              color="primary">View</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
 
 
-            
-            </mat-card>
+
+      <!-- code removed from -->
+
+    </div>
 
 
-            
-   
+
+  </mat-card>
+
+
+
+
 </div>

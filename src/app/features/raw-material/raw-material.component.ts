@@ -1,39 +1,35 @@
-
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { MaterialService } from 'src/app/services/material.service';
-
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
-
 @Component({
-  selector: 'app-materials',
-  templateUrl: './materials.component.html',
-  styleUrls: ['./materials.component.css']
+  selector: 'app-raw-material',
+  templateUrl: './raw-material.component.html',
+  styleUrls: ['./raw-material.component.css']
 })
-
-export class MaterialsComponent implements OnInit  {
+export class RawMaterialComponent  implements OnInit {
   materials:any=[];
   fileName= 'MaterialExcelSheet.xlsx';
+  
   displayedColumns: string[] = ['m_id', 'name', 'c_id', 'created_At' ,'modified_at','actions'];
+  //dataSource = this.materials;
+  dataSource = new MatTableDataSource(this.materials);
   categories:any=[];
   c_id:any;
   cname:any;
-  constructor(private _inventory:InventoryService,private router:Router,private _route: ActivatedRoute,private _materials:MaterialService) { }
-  
-
-
-
-  ngOnInit() {
-    
+  constructor(private _liveAnnouncer: LiveAnnouncer,private _inventory:InventoryService,private router:Router,private _route: ActivatedRoute,private _materials:MaterialService) { }
+  ngOnInit(): void {
     this._materials.material().subscribe((data:any)=>{
     
   //this.materials=data;
-   this.materials = data.filter((temp: any) => temp.isdelete == 0);
- 
- 
+  this.materials = data.filter((temp: any) => temp.isdelete == 0 && temp.categories.name=='Consumable');
+
+
+
   console.log(this.materials);
   
     }, (error)=>{

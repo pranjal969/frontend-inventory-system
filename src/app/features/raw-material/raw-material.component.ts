@@ -15,7 +15,7 @@ export class RawMaterialComponent  implements OnInit {
   materials:any=[];
   fileName= 'MaterialExcelSheet.xlsx';
   
-  displayedColumns: string[] = ['m_id', 'name', 'c_id', 'created_At' ,'modified_at','actions'];
+  displayedColumns: string[] = ['m_id', 'name', 'categoriesName', 'created_At' ,'modified_at','actions'];
   //dataSource = this.materials;
   dataSource = new MatTableDataSource(this.materials);
   categories:any=[];
@@ -26,7 +26,7 @@ export class RawMaterialComponent  implements OnInit {
     this._materials.material().subscribe((data:any)=>{
     
   //this.materials=data;
-  this.materials = data.filter((temp: any) => temp.isdelete == 0 && temp.categories.name=='Consumable');
+  this.materials = data.filter((temp: any) => temp.isdelete == 0 && temp.categoriesName.replace(/ /g, "").toLowerCase()=='raw');
 
 
 

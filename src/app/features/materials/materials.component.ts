@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { MaterialService } from 'src/app/services/material.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
@@ -17,11 +19,13 @@ import * as XLSX from 'xlsx';
 export class MaterialsComponent implements OnInit  {
   materials:any=[];
   fileName= 'MaterialExcelSheet.xlsx';
-  displayedColumns: string[] = ['m_id', 'name', 'c_id', 'created_At' ,'modified_at','actions'];
+  displayedColumns: string[] = ['m_id', 'name', 'created_At' ,'modified_at','categoriesName','actions'];
   categories:any=[];
   c_id:any;
   cname:any;
-  constructor(private _inventory:InventoryService,private router:Router,private _route: ActivatedRoute,private _materials:MaterialService) { }
+  constructor(private _inventory:InventoryService,private router:Router,private _route: ActivatedRoute,private _materials:MaterialService) {
+
+   }
   
 
 

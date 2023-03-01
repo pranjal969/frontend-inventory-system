@@ -1,0 +1,51 @@
+.example-action-buttons {
+    padding-bottom: 20px;
+  }
+  
+  .example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: left;
+  }
+  
+  .w100{
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+}
+.logbtn{
+    width: 15%;
+    margin: auto;
+ margin-bottom: 38px;
+ margin-top: 20px;
+ padding: 20px;
+}
+
+.w90{
+    width: 90%;
+}
+
+.scroll {
+  margin:4px, 4px;
+  padding:4px;
+  height: 800px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+.scroll2 {
+    margin:4px, 4px;
+    padding:4px;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+  
+
+.mat-expansion-panel{
+  padding: 5px;
+  background-color: #e3f2fd;
+}

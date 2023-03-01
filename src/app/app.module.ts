@@ -54,6 +54,9 @@ import { CaseIdComponent } from './features/case-id/case-id.component';
 import { RawMaterialComponent } from './features/raw-material/raw-material.component';
 import { ConsumableStockComponent } from './features/consumable-stock/consumable-stock.component';
 import {MatSortModule} from '@angular/material/sort';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 
 
@@ -107,11 +110,13 @@ import {MatSortModule} from '@angular/material/sort';
     MatInputModule,
     HttpClientModule,
     FontAwesomeModule,
+    MatExpansionModule,
     MatListModule,
     MatSelectModule,
     NgxUiLoaderModule,
     MatPaginatorModule,
     NgxMatSelectSearchModule,
+    MatDatepickerModule,
     NgxUiLoaderHttpModule.forRoot(
       {
         showForeground:true,

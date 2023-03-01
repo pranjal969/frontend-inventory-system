@@ -3,7 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { InventoryService } from 'src/app/services/inventory.service';
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
-
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -11,14 +11,13 @@ import * as XLSX from 'xlsx';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
+
 export class CategoryComponent implements OnInit{
   categories:any=[];
   displayedColumns: string[] = ['i+1', 'name', 'created_At', 'created_by' ,'last_Modified_by','actions'];
-  dataSource = this.categories;
-  
+
   fileName= 'CategoryExcelSheet.xlsx';
   @ViewChild(MatSort) sort: MatSort;
-  ngAfterViewInit() { this.categories.sort = this.sort; }
   
   constructor(private _inventory:InventoryService) { }
  
@@ -76,6 +75,7 @@ export class CategoryComponent implements OnInit{
     
   })
 }
+
 
 exportexcel(): void
 {

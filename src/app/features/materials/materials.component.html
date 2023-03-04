@@ -1,52 +1,34 @@
-<div class="fluid-container ">
-
-
+<div class="fluid-container">
   <mat-card class="mt10 scroll2">
-
     <div class="fixtop">
       <h2 class="mt10" style="font-size: large; text-align: center;"> Materials List</h2>
-    
-
       <div class="mb10 mr20 " style="text-align: right;">
-      <a class="img mr20"  [routerLink]="'/dashboard/add-materials/'"> <img  matTooltip="Add New Material" src="../../../assets/images/add.png" alt="" width="45" height="45">
-      </a>
-      <a class="img pointer-link ml20"  (click)="exportexcel()"> <img mdTooltipPosition='BottomCenter' matTooltip="Export to excel" src="../../../assets/images/xls-file.png" alt="" width="45" height="45">
-      </a>
-     </div>
+        <a class="img mr20"  [routerLink]="'/dashboard/add-materials/'"> <img  matTooltip="Add New Material" src="../../../assets/images/add.png" alt="" width="45" height="45"></a>
+        <a class="img pointer-link ml20"  (click)="exportexcel()"> <img mdTooltipPosition='BottomCenter' matTooltip="Export to excel" src="../../../assets/images/xls-file.png" alt="" width="45" height="45"></a>
+      </div>
       <mat-divider></mat-divider>
-    
     </div>
-
-    <table id="excel-table"  mat-table [dataSource]="materials"  matSort class="mat-elevation-z">
-
-
+    <table id="excel-table"  mat-table [dataSource]="dataSource"  matSort class="mat-elevation-z">
       <!-- Position Column -->
-      <ng-container  matColumnDef="m_id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header >Serial No</th>
-        <td  mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+      <ng-container  matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef>Serial No</th>
+        <td  mat-cell *matCellDef="let i = index;"> {{i+1}} </td>
       </ng-container>
-
-
-
       <!-- Name Column -->
       <ng-container  matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header > Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
-
-
       <!-- Ctaegory Column -->
       <ng-container matColumnDef="categoriesName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</th>
         <td mat-cell *matCellDef="let element"> {{element.categoriesName}} </td>
       </ng-container>
-
       <!-- created at Column -->
       <ng-container matColumnDef="created_At">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Created At </th>
         <td mat-cell *matCellDef="let element"> {{element.created_At  | date: 'dd/MM/yy '}} </td>
       </ng-container>
-
       <ng-container class="mr10" matColumnDef="modified_at">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Modified At</th>
         <td mat-cell *matCellDef="let element"> {{element.modified_at  | date: 'dd/MM/yy '}} </td>
@@ -54,20 +36,18 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let materials">
-           <a class="mr20 " [routerLink]="'/dashboard/update-materials/'+materials.m_id" matTooltip="Edit"><i class="material-icons">edit</i>  </a>
+          <a class="mr20 " [routerLink]="'/dashboard/update-materials/'+materials.m_id" matTooltip="Edit"><i class="material-icons">edit</i>  </a>
           <a class="clr pointer-link"   (click)="deleteMaterial(materials.m_id)"  matTooltip="Delete"><i class="material-icons">delete</i>  </a>
-         
         </td>
-        
       </ng-container>
-
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       
     </table>
 
+    <mat-paginator [length]="materials.length" [pageSize]="6" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
+  
   </mat-card>
 
 </div>

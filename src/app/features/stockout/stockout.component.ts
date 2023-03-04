@@ -11,7 +11,7 @@ import * as XLSX from 'xlsx';
 export class StockoutComponent implements OnInit{
   stockout:any=[];
   fileName= 'StockOutExcelSheet.xlsx';
-  displayedColumns: string[] = ['sin_id', 'quantity', 'stock_in', 'created_by' ,'price','actions'];
+  displayedColumns: string[] = ['sin_id', 'materialName', 'categoriesName', 'quantity' ,'stock_out','price', 'actions'];
   dataSource = this.stockout;
 
   

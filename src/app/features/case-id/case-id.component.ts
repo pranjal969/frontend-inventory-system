@@ -22,6 +22,7 @@ export class CaseIdComponent implements OnInit {
   stagging:any =[]
   dispatch:any=[]
   account:any=[]
+  planning:any=[]
  
   @ViewChild('firstAccordion') firstAccordion: MatAccordion;
   @ViewChild('secondAccordion') secondAccordion: MatAccordion;
@@ -59,6 +60,7 @@ formSubmit(){
       this.stagging=data.Data.Stagging;
       this.dispatch=data.Data.Dispatch;
       this.account=data.Data.Account;
+      this.planning=data.Data.Planning;
       console.log(this.stagging);
   
       

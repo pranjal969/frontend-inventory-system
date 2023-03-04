@@ -36,4 +36,12 @@ public getStockinById( stockinId:any){
 public deletestockin(stockinId:any){
   return this._http.delete(`${LocalUrl}/eleserv/stock_in/delete/${stockinId}`)
 }
+
+
+  // delete total  stockin
+  public getTotalStockIn(){
+    return this._http.get(`${LocalUrl}/eleserv/total_stock_in/getAll/`);
+  }
+
+
 }

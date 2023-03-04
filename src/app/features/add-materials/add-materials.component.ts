@@ -23,7 +23,8 @@ export class AddMaterialsComponent implements OnInit {
   ngOnInit(): void {
     this._category.categories().subscribe((data:any)=>{
       //success
-      this.category=data;
+   //   this.category=data;
+      this.category=data.filter((temp: any) => temp.isdelete == 0);
       
       this.material.created_by=this._login.getUser();
       console.log(this.category);

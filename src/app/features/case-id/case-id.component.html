@@ -11,758 +11,433 @@
           <form (ngSubmit)="formSubmit()" class="example-form">
             <mat-form-field style="width: 80%;">
               <span matPrefix> </span>
-              <input autofocus class="ml10" type="tel" matInput placeholder="Enter Case Id" name="search" [(ngModel)]="search">
-              <button style="background-color: #f68121;" class="ml10 mr10" type="submit" matSuffix mat-button> Search</button>
+              <input autofocus class="ml10" type="tel" matInput placeholder="Enter Case Id" name="search"
+                [(ngModel)]="search">
+              <button style="background-color: #f68121;" class="ml10 mr10" type="submit" matSuffix mat-button>
+                Search</button>
             </mat-form-field>
             <br />
           </form>
         </div>
-        <div class="col-md-6" style="text-align: right;">
+        <!-- <div class="col-md-6" style="text-align: right;">
 
           <a class="img pointer-link ml20"> <img mdTooltipPosition='BottomCenter' matTooltip="Export to excel"
               src="../../../assets/images/xls-file.png" alt="" width="45" height="45">
           </a>
 
-        </div>
+        </div> -->
 
       </div>
       <mat-divider></mat-divider>
     </div>
 
-<!-- if search result found on stagging -->
-<div *ngIf="getcaseid"  class=" mb10" style="padding: 10px;">
-<mat-card style="background-color: #e3f2fd;">
+    <!-- if search result found on stagging -->
+    <div *ngIf="getcaseid" class=" mb10" style="padding: 10px;">
+      <mat-card style="background-color: #e3f2fd;">
 
-  <h3 class="mt10" style="font-size: large; text-align: center;">Search Result For Case Id : {{ getcaseid.caseid }}  </h3>
+        <h3 class="mt10" style="font-size: large; text-align: center;">Search Result For Case Id : {{ getcaseid.caseid
+          }} </h3>
 
-  <div class="row mt10 ml10">
-    <div class="col-md-6 ">
-      <mat-form-field class="w90" appearance="outline">
-        <mat-label>Case Id</mat-label>
+        <div class="row mt10 ml10">
+          <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+              <mat-label>Case Id</mat-label>
 
-        <input value={{getcaseid.caseid}} readonly required name="date" matInput>
-      </mat-form-field>
+              <input value={{getcaseid.caseid}} readonly required name="date" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+              <mat-label>Patient Name</mat-label>
+              <input value={{getcaseid.patient_name}} readonly required name="patient_name" matInput>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+        <div class="row mt10 ml10">
+          <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+              <mat-label>Doctor Name</mat-label>
+              <input value={{getcaseid.d_name}} readonly required name="remark" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col-md-6 ">
+            <mat-form-field class="w90" appearance="outline">
+              <mat-label>CRM</mat-label>
+              <input value={{getcaseid.crm}} readonly required name="crm" matInput>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+      </mat-card>
 
     </div>
-    <div class="col-md-6 ">
-      <mat-form-field class="w90" appearance="outline">
-        <mat-label>Patient Name</mat-label>
-        <input value={{getcaseid.patient_name}} readonly required name="patient_name" matInput>
-      </mat-form-field>
 
+
+    <!-- if no case id -->
+    <div *ngIf="!getcaseid" style="margin: auto;" class="text-center mt20">
+      <h2> No result to display. Try Searching with different Id</h2>
     </div>
-  </div>
 
-  <div class="row mt10 ml10">
-    <div class="col-md-6 ">
-      <mat-form-field class="w90" appearance="outline">
-        <mat-label>Doctor Name</mat-label>
-        <input value={{getcaseid.d_name}} readonly required name="remark" matInput>
-      </mat-form-field>
-
-    </div>
-    <div class="col-md-6 ">
-      <mat-form-field class="w90" appearance="outline">
-        <mat-label>CRM</mat-label>
-        <input value={{getcaseid.crm}} readonly required name="crm" matInput>
-      </mat-form-field>
-
-    </div>
-  </div>
-     
-</mat-card>
-
-</div>
-
-
-<!-- if no case id -->
-<div *ngIf="!getcaseid" style="margin: auto;" class="text-center mt20">
-  <h2> No result to display. Try Searching with different Id</h2>
-</div>
-
-<div *ngIf="getcaseid" >
+    <div *ngIf="getcaseid">
 
 
 
-  <mat-accordion  [multi]="true" #firstAccordion="matAccordion">
+      <mat-accordion [multi]="true" #firstAccordion="matAccordion">
 
-    <!-- planning -->
-    <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Planning
-        </mat-panel-title>
-        <mat-panel-description>
-          Get details of planning
+        <!-- planning -->
+        <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Planning
+            </mat-panel-title>
+            <mat-panel-description>
+              Get details of planning
 
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <mat-action-row>
-        <button mat-flat-button (click)="mapanel.close()">Click to close</button>
-      </mat-action-row>
-    </mat-expansion-panel>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
+          <div class="scroll3">
+            <mat-card class="mt20 mb20" *ngFor="let p of planning;">
 
 
 
-    <!-- STAGGING -->
-    <mat-expansion-panel class="mb10 ml10 mr10 mt10 " #mapanel="matExpansionPanel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Stagging
-        </mat-panel-title>
-        <mat-panel-description>
-          Get details of stagging
+              <form>
 
-        </mat-panel-description>
-      </mat-expansion-panel-header>
 
-      <div class="scroll">
-        <mat-card class="mt20 mb20" *ngFor="let s of stagging; let i = index">
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Planned No</mat-label>
+                      <input value={{p.planned_no}} readonly required name="upper_aligner_from" matInput>
+                    </mat-form-field>
 
-          <div class="text-center mt10 mb10">
-            <h3> Stagging data {{ i + 1 }}</h3>
-            <mat-divider></mat-divider>
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Planning Type</mat-label>
+                      <input value={{p.planning_type}} readonly required name="upper_aligner_to" matInput>
+                    </mat-form-field>
+
+                  </div>
+
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Upper Aligner From</mat-label>
+                      <input value={{p.upper_aligner_from}} readonly required name="lower_aligner_from" matInput>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Upper Aligner To</mat-label>
+                      <input value={{p.upper_aligner_to}} readonly required name="lower_aligner_to" matInput>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Lower Aligner From</mat-label>
+                      <input value={{p.lower_aligner_from}} readonly required name="lower_aligner_from" matInput>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Lower Aligner To</mat-label>
+                      <input value={{p.lower_aligner_to}} readonly required name="lower_aligner_to" matInput>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+
+
+
+              </form>
+            </mat-card>
           </div>
 
-          <form>
-          
-           
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Upper Aligner From</mat-label>
-                  <input value={{s.upper_aligner_from}} readonly required name="upper_aligner_from" matInput>
-                </mat-form-field>
 
+
+          <mat-action-row>
+            <button mat-flat-button (click)="mapanel.close()">Click to close</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+
+
+
+
+        <!-- STAGGING -->
+        <mat-expansion-panel class="mb10 ml10 mr10 mt10 " #mapanel="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Stagging
+            </mat-panel-title>
+            <mat-panel-description>
+              Get details of stagging
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="scroll">
+            <mat-card class="mt20 mb20" *ngFor="let s of stagging; let i = index">
+
+              <div class="text-center mt10 mb10">
+                <h3> Stagging data {{ i + 1 }}</h3>
+                <mat-divider></mat-divider>
               </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Upper Aligner To</mat-label>
-                  <input value={{s.upper_aligner_to}} readonly required name="upper_aligner_to" matInput>
-                </mat-form-field>
 
-              </div> 
-           
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Lower Aligner From</mat-label>
-                  <input value={{s.lower_aligner_from}} readonly required name="lower_aligner_from" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Lower Aligner To</mat-label>
-                  <input value={{s.lower_aligner_to}} readonly required name="lower_aligner_to" matInput>
-                </mat-form-field>
-
-              </div> 
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Thickness Upper</mat-label>
-                  <input value={{s.thick_upper}} readonly required name="thick_upper" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Thickness Lower</mat-label>
-                  <input value={{s.thick_lower}} readonly required name="thick_lower" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Margin Upper</mat-label>
-                  <input value={{s.margin_upper}} readonly required name="margin_upper" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Margin Lower</mat-label>
-                  <input value={{s.margin_lower}} readonly required name="margin_lower" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>3rd Molar Upper</mat-label>
-                  <input value={{s.molor_upper}} readonly required name="molor_upper" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>3rd Molar Lower</mat-label>
-                  <input value={{s.molor_lower}} readonly required name="molor_lower" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Sheet Type</mat-label>
-                  <input value={{s.sheet_type}} readonly required name="sheet_type" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>IPR Sheet</mat-label>
-                  <input value={{s.ipr_sheet_}} readonly required name="upper_aligner_to" matInput>
-                </mat-form-field>
-
-              </div> 
-            </div>
-          </form>
-        </mat-card>
-      </div>
-
-      <mat-action-row>
-        <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
-      </mat-action-row>
-    </mat-expansion-panel>
+              <form>
 
 
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Upper Aligner From</mat-label>
+                      <input value={{s.upper_aligner_from}} readonly required name="upper_aligner_from" matInput>
+                    </mat-form-field>
 
-    <!-- 3d printing -->
-    <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          3'D Printing
-        </mat-panel-title>
-        <mat-panel-description>
-          Get details of 3'D Printing
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Upper Aligner To</mat-label>
+                      <input value={{s.upper_aligner_to}} readonly required name="upper_aligner_to" matInput>
+                    </mat-form-field>
 
+                  </div>
 
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Lower Aligner From</mat-label>
+                      <input value={{s.lower_aligner_from}} readonly required name="lower_aligner_from" matInput>
+                    </mat-form-field>
 
-      <mat-action-row>
-        <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
-      </mat-action-row>
-    </mat-expansion-panel>
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Lower Aligner To</mat-label>
+                      <input value={{s.lower_aligner_to}} readonly required name="lower_aligner_to" matInput>
+                    </mat-form-field>
 
+                  </div>
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Thickness Upper</mat-label>
+                      <input value={{s.thick_upper}} readonly required name="thick_upper" matInput>
+                    </mat-form-field>
 
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Thickness Lower</mat-label>
+                      <input value={{s.thick_lower}} readonly required name="thick_lower" matInput>
+                    </mat-form-field>
 
-    <!-- Account -->
-    <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Account
-        </mat-panel-title>
-        <mat-panel-description>
-          Get details of account
+                  </div>
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Margin Upper</mat-label>
+                      <input value={{s.margin_upper}} readonly required name="margin_upper" matInput>
+                    </mat-form-field>
 
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Margin Lower</mat-label>
+                      <input value={{s.margin_lower}} readonly required name="margin_lower" matInput>
+                    </mat-form-field>
 
-      <div class="scroll">
-        <mat-card class="mt20 mb20" *ngFor="let a of account; let k = index">
+                  </div>
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>3rd Molar Upper</mat-label>
+                      <input value={{s.molor_upper}} readonly required name="molor_upper" matInput>
+                    </mat-form-field>
 
-          <div class="text-center mt10 mb10">
-            <h3> Accounts data {{ k + 1 }}</h3>
-            <mat-divider></mat-divider>
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>3rd Molar Lower</mat-label>
+                      <input value={{s.molor_lower}} readonly required name="molor_lower" matInput>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+                <div class="row mt10 ml10">
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>Sheet Type</mat-label>
+                      <input value={{s.sheet_type}} readonly required name="sheet_type" matInput>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col-md-6 ">
+                    <mat-form-field class="w90" appearance="outline">
+                      <mat-label>IPR Sheet</mat-label>
+                      <input value={{s.ipr_sheet_}} readonly required name="upper_aligner_to" matInput>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+              </form>
+            </mat-card>
           </div>
 
-          <form>
-
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Date</mat-label>
-                  <input value={{a.date}} readonly required name="date" matInput>
-
-
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Case Id</mat-label>
-                  <input value={{a.case_id}} readonly required name="case_id" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>User</mat-label>
-                  <input value={{a.user}} readonly required name="user" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Created_At</mat-label>
-                  <input value={{a.created_At}} readonly required name="created_At" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
+          <mat-action-row>
+            <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
+          </mat-action-row>
+        </mat-expansion-panel>
 
 
 
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Invoice No</mat-label>
-                  <input value={{a.invoice_number}} readonly required name="invoice_number" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Submitted Amount</mat-label>
-                  <input value={{a.submitted_amount}} readonly required name="submitted_amount" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Crm</mat-label>
-                  <input value={{a.crm}} readonly required name="crm" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Doctor Name</mat-label>
-                  <input value={{a.doctor_name}} readonly required name="doctor_name" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
+        <!-- 3d printing -->
+        <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              3'D Printing
+            </mat-panel-title>
+            <mat-panel-description>
+              Get details of 3'D Printing
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
 
 
-
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Patient Name</mat-label>
-                  <input value={{a.patient_name}} readonly required name="patient_name" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Invoice Date</mat-label>
-                  <input value={{a.invoice_date}} readonly required name="invoice_date" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Remain Amount</mat-label>
-                  <input value={{a.remain_amount}} readonly required name="remain_amount" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Remarks</mat-label>
-                  <input value={{a.remarks}} readonly required name="remarks" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Payment Mode</mat-label>
-                  <input value={{a.payment_mode}} readonly required name="payment_mode" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Revoke Amount</mat-label>
-                  <input value={{a.revoke_amount}} readonly required name="revoke_amount" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Account Id</mat-label>
-                  <input value={{a.account_id}} readonly required name="account_id" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Payment</mat-label>
-                  <input value={{a.payment}} readonly required name="payment" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Paid Amount</mat-label>
-                  <input value={{a.paid_amount}} readonly required name="paid_amount" matInput>
-                </mat-form-field>
-
-              </div>
-
-            </div>
-
-          </form>
-        </mat-card>
-      </div>
-
-      <mat-action-row>
-        <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
-      </mat-action-row>
-    </mat-expansion-panel>
+          <mat-action-row>
+            <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
+          </mat-action-row>
+        </mat-expansion-panel>
 
 
 
-    <!-- dispatch -->
-    <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Dispatch
-        </mat-panel-title>
-        <mat-panel-description>
-          Get details of dispatch
+        <!-- Account -->
+        <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Account
+            </mat-panel-title>
+            <mat-panel-description>
+              Get details of account
 
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-      <div class="scroll">
-        <mat-card class="mt20 mb20" *ngFor="let d of dispatch; let j = index">
+          <div>
+            <mat-card class="mt20 mb20">
 
-          <div class="text-center mt10 mb10">
-            <h3> Dispatch data {{ j + 1 }}</h3>
-            <mat-divider></mat-divider>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Mode</th>
+                    <th scope="col">Paid Amount</th>
+                    <th scope="col">Total Paid Amount</th>
+                    <th scope="col">Revoke Amount</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Remarks</th>
+                    <th scope="col">Date</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of account; let k = index">
+                    <th scope="row">{{ k + 1 }}</th>
+                    <td>{{a.payment_mode}}</td>
+                    <td>{{a.paid_amount}}</td>
+                    <td>{{a.submitted_amount}}</td>
+                    <td>{{a.revoke_amount}}</td>
+                    <td>{{a.payment}}</td>
+                    <td>{{a.remarks}}</td>
+                    <td>{{a.date | date: 'dd/MM/yy '}}</td>
+
+                  </tr>
+
+
+                </tbody>
+              </table>
+            </mat-card>
           </div>
 
-          <form>
-
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Address</mat-label>
-                  <textarea matInput value={{d.address}} readonly required name="address">
-                    </textarea>
-
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Location</mat-label>
-                  <input value={{d.location}} readonly required name="location" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Date</mat-label>
-                  <input value={{d.date}} readonly required name="date" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Item</mat-label>
-                  <input value={{d.item}} readonly required name="item" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
+          <mat-action-row>
+            <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
+          </mat-action-row>
+        </mat-expansion-panel>
 
 
 
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Case Id</mat-label>
-                  <input value={{d.case_id}} readonly required name="case_id" matInput>
-                </mat-form-field>
+        <!-- dispatch -->
+        <mat-expansion-panel class="mb10 ml10 mr10" #mapanel="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Dispatch
+            </mat-panel-title>
+            <mat-panel-description>
+              Get details of dispatch
 
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Created_At</mat-label>
-                  <input value={{d.created_At}} readonly required name="created_At" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Phone</mat-label>
-                  <input value={{d.phone}} readonly required name="phone" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Delivery nn</mat-label>
-                  <input value={{d.delivery_nn}} readonly required name="delivery_nn" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
 
+          <div>
+            <mat-card class="mt20 mb20">
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Delivery Note</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Upper(F/T)</th>
+                    <th scope="col">Lower(F/T)</th>
+                    <th scope="col">Tracking Id</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let d of dispatch; let l = index">
+                    <th scope="row">{{ l + 1 }}</th>
+                    <td>{{d.date | date: 'dd/MM/yy '}}</td>
+                    <td>{{d.delivery_nn}}</td>
+                    <td>{{d.address}}</td>
+                    <td>{{d.upper_aligner_from}}-{{d.upper_aligner_to}}</td>
+                    <td>{{d.lower_aligner_from}}-{{d.lower_aligner_to}}</td>
+                    <td>{{d.tracking_id}}</td>
 
 
+                  </tr>
 
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Dispatch No</mat-label>
-                  <input value={{d.dispatch_no}} readonly required name="dispatch_no" matInput>
-                </mat-form-field>
 
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Dr Name</mat-label>
-                  <input value={{d.doctor_name}} readonly required name="doctor_name" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Tracking Id</mat-label>
-                  <input value={{d.tracking_id}} readonly required name="tracking_id" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Patient Name</mat-label>
-                  <input value={{d.patient_name}} readonly required name="patient_name" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>remark</mat-label>
-                  <input value={{d.remark}} readonly required name="remark" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>City</mat-label>
-                  <input value={{d.city}} readonly required name="city" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Dispatch</mat-label>
-                  <input value={{d.dispatch}} readonly required name="dispatch" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Lower Att</mat-label>
-                  <input value={{d.lower_att}} readonly required name="lower_att" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Dispatched Id</mat-label>
-                  <input value={{d.dispatched_id}} readonly required name="dispatched_id" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Crm</mat-label>
-                  <input value={{d.crm}} readonly required name="crm" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>SR No</mat-label>
-                  <input value={{d.sr_no}} readonly required name="sr_no" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Pincode</mat-label>
-                  <input value={{d.pincode}} readonly required name="pincode" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Upper Att</mat-label>
-                  <input value={{d.upper_att}} readonly required name="upper_att" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label> Decesion</mat-label>
-                  <input value={{d.decesion}} readonly required name="decesion" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Mode Of Dispatch</mat-label>
-                  <input value={{d.mode_of_dispatch}} readonly required name="mode_of_dispatch" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Upper Aligner To</mat-label>
-                  <input value={{d.upper_aligner_to}} readonly required name="upper_aligner_to" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Default Address</mat-label>
-                  <input value={{d.default_address}} readonly required name="default_address" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Type Of Dispatch</mat-label>
-                  <input value={{d.type_of_dispatch}} readonly required name="type_of_dispatch" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Payment Bill Status</mat-label>
-                  <input value={{d.payment_bill_status}} readonly required name="payment_bill_status" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Upper Aligner From</mat-label>
-                  <input value={{d.upper_aligner_from}} readonly required name="upper_aligner_from" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Lower Aligner From</mat-label>
-                  <input value={{d.lower_aligner_from}} readonly required name="lower_aligner_from" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Payment Bill Status Remarks</mat-label>
-                  <input value={{d.payment_bill_status_remarks}} readonly required name="payment_bill_status_remarks"
-                    matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Lower Aligner To</mat-label>
-                  <input value={{d.lower_aligner_to}} readonly required name="lower_aligner_to" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>No Of Aligners</mat-label>
-                  <input value={{d.no_of_aligners}} readonly required name="no_of_aligners" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-            <div class="row mt10 ml10">
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Default Starter Kit</mat-label>
-                  <input value={{d.default_starterkit}} readonly required name="default_starterkit" matInput>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6 ">
-                <mat-form-field class="w90" appearance="outline">
-                  <mat-label>Confirm Status</mat-label>
-                  <input value={{d.confirm_status}} readonly required name="confirm_status" matInput>
-                </mat-form-field>
-
-              </div>
-            </div>
-          </form>
-        </mat-card>
-      </div>
-      <mat-action-row>
-        <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
-      </mat-action-row>
-    </mat-expansion-panel>
+                </tbody>
+              </table>
+            </mat-card>
+          </div>
+          <mat-action-row>
+            <button mat-flat-button (click)="closeAllPanels()">Click to close</button>
+          </mat-action-row>
+        </mat-expansion-panel>
 
 
 
-  </mat-accordion>
+      </mat-accordion>
 
-</div>
+    </div>
   </mat-card>
 
 </div>

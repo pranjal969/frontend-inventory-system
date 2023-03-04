@@ -1,72 +1,92 @@
 <div class="fluid-container ">
 
-    <mat-card class="mt10 scroll2">
-  
-      <div class="fixtop">
-        <h2 class="mt10" style="font-size: large; text-align: center;"> Stock In</h2>
-       <div class="mb10 mr20 " style="text-align: right;">
-        <a class="img mr20"  [routerLink]="'/dashboard/add-stockin/'"> <img  matTooltip="Add New Stock" src="../../../assets/images/add.png" alt="" width="45" height="45">
+  <mat-card class="mt10 scroll2">
+
+    <div class="fixtop">
+      <h2 class="mt10" style="font-size: large; text-align: center;"> Stock In</h2>
+      <div class="mb10 mr20 " style="text-align: right;">
+        <a class="img mr20" [routerLink]="'/dashboard/add-stockin/'"> <img matTooltip="Add New Stock"
+            src="../../../assets/images/add.png" alt="" width="45" height="45">
         </a>
-        <a class="img pointer-link ml20"  (click)="exportexcel()"> <img mdTooltipPosition='BottomCenter' matTooltip="Export to excel" src="../../../assets/images/xls-file.png" alt="" width="45" height="45">
+        <a class="img pointer-link ml20" (click)="exportexcel()"> <img mdTooltipPosition='BottomCenter'
+            matTooltip="Export to excel" src="../../../assets/images/xls-file.png" alt="" width="45" height="45">
         </a>
-       </div>
-        <mat-divider></mat-divider>
       </div>
-  
-      <table id="excel-table" mat-table [dataSource]="stockin" class="mat-elevation-z8">
-  
-       
-        <!-- Position Column -->
-        <ng-container matColumnDef="sin_id">
-          <th mat-header-cell *matHeaderCellDef> Serial No </th> 
-          <td  mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
-       </ng-container>
-  
-        <!-- Name Column -->
-        <ng-container matColumnDef="quantity">
-          <th mat-header-cell *matHeaderCellDef> Quantity </th>
-          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-        </ng-container>
-  
-    
-        <!-- Weight Column -->
-        <ng-container matColumnDef="stock_in">
-          <th mat-header-cell *matHeaderCellDef> Stock In</th>
-          <td mat-cell *matCellDef="let element"> {{element.stock_in}} </td>
-        </ng-container>
-  
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="created_by">
-          <th mat-header-cell *matHeaderCellDef> Created By </th>
-          <td mat-cell *matCellDef="let element"> {{element.created_by}} </td>
-        </ng-container>
-  
-  
-        
-  
-        <ng-container class="mr10" matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef>Price</th>
-          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef> Actions </th>
-          <td mat-cell *matCellDef="let stockin"> <a class="mr20 " [routerLink]="'/dashboard/update-stockin/'+stockin.sin_id" matTooltip="Edit"><i class="material-icons">edit</i>  </a>
-            <a class="clr pointer-link"   (click)="deleteStockin(stockin.sin_id)"  matTooltip="Delete"><i class="material-icons">delete</i>  </a>
-         
-          </td>
-          
-        </ng-container>
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-  
-  
-    </mat-card>
-  
-  
-  
-   
-  
-  </div>
+      <mat-divider></mat-divider>
+    </div>
+
+    <table id="excel-table"  mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef> Serial No </th>
+        <td mat-cell *matCellDef="let i = index;"> {{i+1}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="materialName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Material Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.materialName}} </td>
+      </ng-container>
+
+
+      <!-- Category Name-->
+      <ng-container matColumnDef="categoriesName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.categoriesName}} </td>
+      </ng-container>
+
+      <!-- Vendor Name -->
+      <ng-container matColumnDef="vendorName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vendor Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.vendorName}} </td>
+      </ng-container>
+
+
+
+      <!--quantity-->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+
+
+      <!--Stock In-->
+      <ng-container matColumnDef="stock_in">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Stock In</th>
+        <td mat-cell *matCellDef="let element"> {{element.stock_in}} </td>
+      </ng-container>
+
+      <!--Price-->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let stockin"> <a class="mr20 "
+            [routerLink]="'/dashboard/update-stockin/'+stockin.sin_id" matTooltip="Edit"><i
+              class="material-icons">edit</i> </a>
+          <a class="clr pointer-link" (click)="deleteStockin(stockin.sin_id)" matTooltip="Delete"><i
+              class="material-icons">delete</i> </a>
+
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </mat-card>
+
+
+
+
+
+</div>

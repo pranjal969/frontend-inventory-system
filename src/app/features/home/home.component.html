@@ -9,96 +9,145 @@
     </div>
     <mat-divider></mat-divider>
 
-    <div class="row" style="margin: auto;  padding: 10px;">
+    <div class="row" style="margin: auto;">
       <div class="col-md-6">
-        <mat-card class="example-card ml20 mt10 mb10 ">
-          <mat-card-header >
+        <mat-card class="example-card ml10 mt10 mb10 ">
+          <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Raw Material Stock</mat-card-title>
           </mat-card-header>
           <mat-divider></mat-divider>
-          <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-          <mat-card-content>
-            <p>
 
-            </p>
+          <mat-card-content class="scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Material Name</th>
+                  <th scope="col">Stock</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let r of raw_materials; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{r.materialName}}</td>
+                  <td>{{r.total_stock_in}}</td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
           </mat-card-content>
-          <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-            <button class="mr10" [routerLink]="'/dashboard/raw-material'" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
-              color="primary">View</button>
-          </mat-card-actions>
+
         </mat-card>
       </div>
-
+      <!-- consumbales -->
       <div class="col-md-6">
-        <mat-card class="example-card ml20 mt10 mb10 ">
-          <mat-card-header >
+        <mat-card class="example-card ml10 mt10 mb10 ">
+          <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Consumable Stock</mat-card-title>
           </mat-card-header>
           <mat-divider></mat-divider>
-          <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-          <mat-card-content>
-            <p>
+          <mat-card-content class="scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Material Name</th>
+                  <th scope="col">Stock</th>
 
-            </p>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of consumables; let j = index">
+                  <th scope="row">{{ j + 1 }}</th>
+                  <td>{{c.materialName}}</td>
+                  <td>{{c.total_stock_in}}</td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
           </mat-card-content>
-          <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-            <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
-              color="primary">View</button>
-          </mat-card-actions>
         </mat-card>
       </div>
 
     </div>
 
-
-    <div class="row" style="margin: auto; padding: 10px;">
+    <!-- assets -->
+    <div class="row mb20" style="margin: auto; padding-bottom: 10px;">
       <div class="col-md-6">
-       
-          <mat-card class="example-card ml20 mt10 mb10 mr20">
-            <mat-card-header >
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Assest Stock</mat-card-title>
-            </mat-card-header>
-            <mat-divider></mat-divider>
-            <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-            <mat-card-content>
-              <p>
-  
-              </p>
-            </mat-card-content>
-            <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-              <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
-                color="primary">View</button>
-            </mat-card-actions>
-          </mat-card>
-       
+
+        <mat-card class="example-card mt10 mb10 " id="example-asset">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Assest Stock</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-card-content class="scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Material Name</th>
+                  <th scope="col">Stock</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let a of assets; let k = index">
+                  <th scope="row">{{ k + 1 }}</th>
+                  <td>{{a.materialName}}</td>
+                  <td>{{a.total_stock_in}}</td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
+          </mat-card-content>
+        </mat-card>
+
       </div>
 
+
+      <!-- stationary -->
       <div class="col-md-6">
-        <mat-card class="example-card ml20 mt10 mb10 ">
-          <mat-card-header >
+        <mat-card class="example-card mt10 mb10 " id="stationary">
+          <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Stationary Stock</mat-card-title>
           </mat-card-header>
           <mat-divider></mat-divider>
-          <img class="decor" mat-card-image src="../../../assets/images/homeicons/inventory.png" alt="Photo">
-          <mat-card-content>
-            <p>
+          <mat-card-content class="scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Material Name</th>
+                  <th scope="col">Stock</th>
 
-            </p>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let s of stationary; let l = index">
+                  <th scope="row">{{ l + 1 }}</th>
+                  <td>{{s.materialName}}</td>
+                  <td>{{s.total_stock_in}}</td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
           </mat-card-content>
-          <mat-card-actions style="margin: auto;  " class="mt10 mb10">
-            <button class="mr10" style="padding-right: 27px; padding-left: 27px;" mat-raised-button
-              color="primary">View</button>
-          </mat-card-actions>
         </mat-card>
       </div>
 
-
-
-      <!-- code removed from -->
 
     </div>
 

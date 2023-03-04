@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { DescriptionService } from 'src/app/services/description.service';
 import { VendorService } from 'src/app/services/vendor.service';
+import { ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import Swal from 'sweetalert2';
 
 import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css']
 })
 export class DescriptionComponent implements OnInit{
-  description:any=[];
+  description:any[] = [];
   displayedColumns: string[] = ['description_id', 'name' ,'created_at', 'created_by', 'last_modified_by', 'actions'];
-  dataSource = this.description;
+  dataSource = new MatTableDataSource<any>([]);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   fileName= 'DescriptionExcelSheet.xlsx';
   
@@ -22,6 +27,9 @@ export class DescriptionComponent implements OnInit{
     this._description.getAllDescription().subscribe((data:any)=>{
       //success
       this.description=data.filter((temp: any) => temp.isdelete == 0);
+
+      this.dataSource = new MatTableDataSource(this.description);
+      this.dataSource.paginator = this.paginator;
       console.log(this.description);
     }, (error)=>{
       Swal.fire({
@@ -35,6 +43,16 @@ export class DescriptionComponent implements OnInit{
     )
    
   }
+
+
+
+  onPageChange(event: any) {
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = startIndex + event.pageSize;
+    this.dataSource.data = this.description.slice(startIndex, endIndex);
+  }
+
+
 //delete description
 deleteDescription(description_id: any) {
   Swal.fire({
@@ -49,6 +67,7 @@ deleteDescription(description_id: any) {
       this._description.deletedescription(description_id).subscribe((data: any) => {
         //success
         this.description = this.description.filter((temp: any) => temp.description_id != description_id);
+        this.dataSource.data = this.description;
         Swal.fire({
           title: 'Success!',
           text: 'Description deleted successfully!!',
@@ -84,8 +103,5 @@ exportexcel(): void
   XLSX.writeFile(wb, this.fileName);
 
 }
-
-
-
 
 }

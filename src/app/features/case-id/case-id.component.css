@@ -35,6 +35,16 @@
   overflow-y: auto;
   text-align:justify;
 }
+
+
+.scroll3{
+  margin:4px, 4px;
+  padding:4px;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
 .scroll2 {
     margin:4px, 4px;
     padding:4px;
@@ -49,3 +59,4 @@
   padding: 5px;
   background-color: #e3f2fd;
 }
+

@@ -5,12 +5,21 @@
     
     .example-card {
         min-width: 340px;
-        min-height: 360px;
+       
+        
+        margin:4px 4px;
+        padding:4px;
+        height: 363px;
+       
+        overflow-y: auto;
+        text-align:justify;
+
       }
       
       .example-header-image {
         background-image: url('../../../assets/images/homeicons/inventory.png');
         background-size: cover;
+      
       }
       .width{
         width: 60% !important;
@@ -44,9 +53,30 @@
         text-align:justify;
     }
 
+    .scroll2 {
+      margin:4px, 4px;
+      padding:4px;
+      height: 600px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      text-align:justify;
+  }
+
+
     .head{
       font-family: "Lucida Console";
       text-shadow: 2px;
       letter-spacing: 5px;
       
     }
+    #example-asset{
+     width: 102%;
+     margin-left: -10px;
+
+    }
+    #stationary{
+      margin-left: 10px;
+     width: 101%;
+    }
+  
+ 

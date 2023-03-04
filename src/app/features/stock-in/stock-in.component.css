@@ -68,11 +68,17 @@ th {
  }
 
 
- td {
+ th {
     z-index: 0;
-    width: 55px;
+     width: 75px; 
+     background-color: azure;
 
  }
+ td {
+ 
+    width: 95px; 
+}
+
  a.img:hover{
   zoom: 105%;
   transition: 1.5x;

@@ -32,6 +32,7 @@ import { DescriptionComponent } from './features/description/description.compone
 import { ScrappingComponent } from './features/scrapping/scrapping.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule  } from 'ngx-ui-loader';
 import { UpdateCategoryComponent } from './features/update-category/update-category.component';
@@ -56,6 +57,7 @@ import { ConsumableStockComponent } from './features/consumable-stock/consumable
 import {MatSortModule} from '@angular/material/sort';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatTableComponent } from './testing/mat-table/mat-table.component';
 
 
 
@@ -93,6 +95,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     CaseIdComponent,
     RawMaterialComponent,
     ConsumableStockComponent,
+    MatTableComponent,
     
   ],
   imports: [
@@ -114,6 +117,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatListModule,
     MatSelectModule,
     NgxUiLoaderModule,
+    
+    MatRadioModule,
     MatPaginatorModule,
     NgxMatSelectSearchModule,
     MatDatepickerModule,

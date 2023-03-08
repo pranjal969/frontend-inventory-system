@@ -80,6 +80,7 @@ import { MatTableComponent } from './testing/mat-table/mat-table.component';
     ScrappingComponent,
     UpdateCategoryComponent,
     UpdateMaterialsComponent,
+    
     AddMaterialsComponent,
     AddCategoryComponent,
     AddStockinComponent,

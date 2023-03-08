@@ -5,6 +5,8 @@ import { InventoryService } from 'src/app/services/inventory.service';
 import { MaterialService } from 'src/app/services/material.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
@@ -30,7 +32,8 @@ export class MaterialsComponent implements OnInit {
     private _inventory: InventoryService,
     private router: Router,
     private _route: ActivatedRoute,
-    private _materials: MaterialService
+    private _materials: MaterialService,
+    private _snackBar:MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -41,6 +44,9 @@ export class MaterialsComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.materials);
       this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this._snackBar.open('Material loaded succesfully :', 'OK', {
+          duration: 10000
+        });
         console.log(this.materials);
       },
       (error) => {

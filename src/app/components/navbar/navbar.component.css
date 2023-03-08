@@ -78,3 +78,12 @@ button:hover{
     text-align: center;
     z-index: 2;
   }
+
+
+  
+  /* Styles for screens smaller than 768px */
+  @media (max-width: 768px) {
+    .row {
+      padding: 10px;
+    }
+  }

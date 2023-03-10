@@ -44,9 +44,9 @@ export class MaterialsComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.materials);
       this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        this._snackBar.open('Material loaded succesfully :', 'OK', {
-          duration: 10000
-        });
+        // this._snackBar.open('Material loaded succesfully :', 'OK', {
+        //   duration: 10000
+        // });
         console.log(this.materials);
       },
       (error) => {
